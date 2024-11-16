@@ -1,0 +1,109 @@
+{
+  "custom/media": {
+    "format": "{}",
+    "tooltip": true,
+    "tooltip-format": "{}",
+    "escape": true,
+    "return-type": "json",
+    "max-length": 50,
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl stop",
+    "on-scroll-up": "playerctl previous",
+    "on-scroll-down": "playerctl next",
+    "exec": "$HOME/Niri/waybar/modules/media-player.py 2> /dev/null"
+  },
+  "niri/window": {
+    "icon": true,
+    "icon-size": 18,
+    "max-length": 70
+  },
+  "custom/updates": {
+    "format": "  {}",
+    "escape": true,
+    "return-type": "json",
+    "exec": "$HOME/Niri/waybar/modules/count-updates.sh",
+    "restart-interval": 60,
+    "on-click": "alacritty --class floating -e $HOME/Niri/waybar/modules/install-updates.sh",
+    "tooltip": false
+  },
+  "pulseaudio": {
+    "format": "{icon} ",
+    "format-bluetooth": "{icon} ",
+    "format-muted": " ",
+    "format-icons": {
+      "alsa_output.pci-0000_00_1f.3.analog-stereo": "",
+      "alsa_output.pci-0000_00_1f.3.analog-stereo-muted": "",
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "phone-muted": "",
+      "portable": "",
+      "car": "",
+      "default": ["", ""]
+    },
+    "scroll-step": 1,
+    "ignored-sinks": ["Easy Effects Sink"],
+    "on-click": "pwvucontrol"
+  },
+  "battery": {
+    "states": {
+      "good": 100,
+      "warning": 30,
+      "critical": 15
+    },
+    "interval": 10,
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged": "󰂄 {capacity}%",
+    "format-icons": ["󰁻", "󰁽", "󰁿", "󰂁", "󰁹"]
+  },
+  "network": {
+    "format": "{ifname}",
+    "format-wifi": "  {essid}",
+    "format-ethernet": "󰈀  {ifname}",
+    "format-disconnected": "Disconnected",
+    "tooltip-format-wifi": "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
+    "tooltip-format-ethernet": "󰈀  {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50,
+    "on-click": "alacritty --class floating -e nmtui connect"
+  },
+  "custom/weather": {
+    "format": "{}°",
+    "tooltip": true,
+    "interval": 300,
+    "exec": "wttrbar --hide-conditions --location Hsinchu",
+    "return-type": "json"
+  },
+  "cpu": {
+    "format": "  {usage}%",
+    "interval": 10
+  },
+  "memory": {
+    "format": "  {}%",
+    "interval": 10
+  },
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}",
+    "tooltip": true,
+    "format-icons": {
+      "performance": "󰓅",
+      "balanced": "󰾅",
+      "power-saver": "󰾆"
+    }
+  },
+  "custom/swayidle": {
+    "format": "{}",
+    "escape": true,
+    "return-type": "json",
+    "exec": "$HOME/Niri/waybar/modules/check-swayidle.sh",
+    "on-click": "$HOME/Niri/scripts/toggle-swayidle.sh",
+    "restart-interval": 1
+  },
+  "clock": {
+    "format": "{:%b %d %H:%M}",
+    "tooltip-format": "<tt>{calendar}</tt>"
+  }
+}

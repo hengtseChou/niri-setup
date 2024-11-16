@@ -1,0 +1,90 @@
+/*base background color*/
+@define-color bg_main rgba(25, 25, 25, 0.65);
+@define-color bg_main_tooltip rgba(0, 0, 0, 0.7);
+
+/*base background color of selections */
+@define-color bg_hover rgba(200, 200, 200, 0.3);
+/*base background color of active elements */
+@define-color bg_active rgba(100, 100, 100, 0.5);
+
+/*base border color*/
+@define-color border_main rgba(255, 255, 255, 0.2);
+
+/*text color for entries, views and content in general */
+@define-color content_main white;
+/*text color for entries that are unselected */
+@define-color content_inactive rgba(255, 255, 255, 0.25);
+
+* {
+  text-shadow: none;
+  box-shadow: none;
+  border: none;
+  border-radius: 0;
+  font-family: "Ubuntu Mono Nerd Font", "Noto Sans Mono CJK TC";
+  font-weight: 300;
+  font-size: 16px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+window#waybar {
+  background: @bg_main;
+  border-top: 1px solid @border_main;
+  color: @content_main;
+}
+
+tooltip {
+  background: @bg_main_tooltip;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: @border_main;
+}
+tooltip label {
+  color: @content_main;
+}
+
+#custom-media,
+#custom-updates,
+#pulseaudio,
+#battery,
+#network,
+#custom-weather,
+#cpu,
+#memory,
+#power-profiles-daemon,
+#custom-swayidle,
+#clock {
+  margin: 0 10px 0 0;
+  padding: 2px 2px;
+}
+
+#power-profiles-daemon {
+  margin: 0 16px 0 0;
+  font-size: 19px;
+}
+
+#custom-swayidle {
+  margin: 0 16px 0 0;
+}
+
+#battery.good {
+  color: #228b22;
+}
+
+#battery.warning {
+  color: #fad104;
+}
+
+#battery.critical {
+  color: #ee2e24;
+}
+
+#battery.charging {
+  color: #ffffff;
+}
+
+#custom-media {
+  color: #8968cd;
+  margin: 0 0 0 14px;
+}

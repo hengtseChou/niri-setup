@@ -1,0 +1,4 @@
+wallpapers/*
+!wallpapers/current_wallpaper.*
+fontconfig/conf.d/
+fontconfig/conf.d/*
