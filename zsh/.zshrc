@@ -66,14 +66,6 @@ bindkey "^[[F" end-of-line
 bindkey "^[[3~" delete-char
 
 # ---------------------------------------------------------------------------- #
-#                                  DIRECTORIES                                 #
-# ---------------------------------------------------------------------------- #
-
-hypr="$HOME/Hypr"
-niri="$HOME/Niri"
-conf="$HOME/Conf"
-
-# ---------------------------------------------------------------------------- #
 #                                      GIT                                     #
 # ---------------------------------------------------------------------------- #
 
@@ -95,39 +87,18 @@ alias g="gnome-text-editor"
 alias ls="eza --icons --group-directories-first"
 alias ll="eza -l --icons --group-directories-first"
 alias lt="eza --tree --level=1 --icons --group-directories-first"
-alias conf="code $conf"
-alias hypr="code $hypr"
-alias wifi="nmtui connect"
 alias clock="peaclock"
 alias zshrc="nano $HOME/.zshrc"
 alias reload="source $HOME/.zshrc"
 
 function ff() {
-  if [[ $XDG_CURRENT_DESKTOP == 'Hyprland' ]]; then
-    fastfetch --config $hypr/fastfetch/hyprland.jsonc
-  elif [[ $XDG_CURRENT_DESKTOP == 'GNOME' ]]; then
-    fastfetch --config $hypr/fastfetch/gnome.jsonc
-  elif [[ $XDG_CURRENT_DESKTOP == 'niri' ]]; then
-    fastfetch --config $niri/fastfetch/niri.jsonc
-  fi
+  fastfetch --config $HOME/Niri/fastfetch/niri.jsonc
 }
 
 function log-out() {
-  if [[ $XDG_CURRENT_DESKTOP == "Hyprland" ]]; then
-    echo "Session found: Hyprland. Logging out..."
-    sleep 2
-    hyprctl dispatch exit
-  elif [[ $XDG_CURRENT_DESKTOP == "GNOME" ]]; then
-    echo "Session found: GNOME. Logging out..."
-    sleep 2
-    gnome-session-quit --no-prompt
-  elif [[ $XDG_CURRENT_DESKTOP == "niri" ]]; then
-    echo "Session found: Niri. Logging out..."
-    sleep 2
-    pkill niri
-  else
-    echo "Unknown session: $XDG_CURRENT_DESKTOP."
-  fi
+  echo "Session found: Niri. Logging out..."
+  sleep 2
+  pkill niri
 }
 
 # ---------------------------------------------------------------------------- #
