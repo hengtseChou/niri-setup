@@ -32,6 +32,7 @@ utils=(
   swayidle
   swaylock-effects
   udiskie
+  xwayland-satellite
   zoxide
 )
 
@@ -102,6 +103,7 @@ chsh -s /bin/zsh
 
 sudo systemctl enable greetd.service
 sudo cp ./greetd/config.toml /etc/greetd/config.toml
+echo ":: Copied $PWD/greetd/config.toml to /etc/greetd/config.toml"
 
 ./symlink.sh $PWD/alacritty --to-config
 ./symlink.sh $PWD/niri --to-config
