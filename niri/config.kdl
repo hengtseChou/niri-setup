@@ -124,30 +124,34 @@ window-rule {
     clip-to-geometry true
 }
 window-rule {
-    match title="Firefox"
-    match title="Visual Studio Code"
+    match app-id="firefox"
+    match app-id="code"
     default-column-width { proportion 1.0; }
 }
 
 binds {
     // Mod+Shift+Slash { show-hotkey-overlay; }
-    Mod+Return { spawn "alacritty"; }
+    Mod+Return      { spawn "alacritty"; }
     Mod+Ctrl+Return { spawn "sh" "-c" "rofi -show drun -replace -i -config $HOME/Niri/rofi/config.rasi"; }
-    Mod+L { spawn "sh" "-c" "$HOME/Niri/scripts/swaylock.sh"; }
-    Mod+C { spawn "sh" "-c" "cliphist list | rofi -dmenu -replace -config $HOME/Niri/rofi/config-cliphist.rasi | cliphist decode | wl-copy"; }
-    Mod+B { spawn "firefox"; }
-    Mod+E { spawn "nautilus"; }
-    Mod+N { spawn "swaync-client" "-t" "-sw"; }
-    Mod+Ctrl+W { spawn "sh" "-c" "$HOME/Niri/scripts/toggle-waybar.sh"; }
-    Mod+Ctrl+P { spawn "sh" "-c" "$HOME/Niri/scripts/power-profiles.sh set"; }
-    Mod+Backspace { spawn "sh" "-c" "$HOME/Niri/scripts/wlogout.sh"; }
+    Mod+L           { spawn "sh" "-c" "$HOME/Niri/scripts/swaylock.sh"; }
+    Mod+C           { spawn "sh" "-c" "cliphist list | rofi -dmenu -replace -config $HOME/Niri/rofi/config-cliphist.rasi | cliphist decode | wl-copy"; }
+    Mod+B           { spawn "firefox"; }
+    Mod+E           { spawn "nautilus"; }
+    Mod+N           { spawn "swaync-client" "-t" "-sw"; }
+    Mod+Ctrl+W      { spawn "sh" "-c" "$HOME/Niri/scripts/toggle-waybar.sh"; }
+    Mod+Ctrl+P      { spawn "sh" "-c" "$HOME/Niri/scripts/power-profiles.sh set"; }
+    Mod+Backspace   { spawn "sh" "-c" "$HOME/Niri/scripts/wlogout.sh"; }
 
-    XF86MonBrightnessUp { spawn "brightnessctl" "set" "+10%" ; }
-    XF86MonBrightnessDown { spawn "brightnessctl" "set" "10%-" ; }
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
-    XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "set" "+10%" ; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "10%-" ; }
+    XF86AudioRaiseVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
+    XF86AudioLowerVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
+    XF86AudioMute         allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+    XF86AudioMicMute      allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    XF86AudioPlay         allow-when-locked=true { spawn "wpctl" "playerctl" "play-pause"; }
+    XF86AudioPause        allow-when-locked=true { spawn "wpctl" "playerctl" "pause"; }
+    XF86AudioNext         allow-when-locked=true { spawn "wpctl" "playerctl" "next"; }
+    XF86AudioPrev         allow-when-locked=true { spawn "wpctl" "playerctl" "previous"; }
 
     Mod+Q { close-window; }
     Mod+W { switch-preset-column-width; }
@@ -155,18 +159,18 @@ binds {
     Mod+M { maximize-column; }
     Mod+F { fullscreen-window; }
 
-    Mod+Shift+Left { set-column-width "-10%"; }
+    Mod+Shift+Left  { set-column-width "-10%"; }
     Mod+Shift+Right { set-column-width "+10%"; }
-    Mod+Shift+Up { set-window-height "+10%"; }
-    Mod+Shift+Down { set-window-height "-10%"; }
+    Mod+Shift+Up    { set-window-height "+10%"; }
+    Mod+Shift+Down  { set-window-height "-10%"; }
 
     Mod+Left  { move-column-left; }
     Mod+Down  { move-window-down; }
     Mod+Up    { move-window-up; }
     Mod+Right { move-column-right; }
 
-    Mod+Home { focus-column-first; }
-    Mod+End  { focus-column-last; }
+    Mod+Home      { focus-column-first; }
+    Mod+End       { focus-column-last; }
     Mod+Ctrl+Home { move-column-to-first; }
     Mod+Ctrl+End  { move-column-to-last; }
 
@@ -197,7 +201,7 @@ binds {
     Mod+9 { move-column-to-workspace 9; }
     Mod+0 { move-column-to-workspace 10; }
 
-    Print { screenshot; }
-    Ctrl+Print { screenshot-screen; }
-    Alt+Print { screenshot-window; }
+    Print       { screenshot; }
+    Ctrl+Print  { screenshot-window; }
+    Shift+Print { screenshot-screen; }
 }
