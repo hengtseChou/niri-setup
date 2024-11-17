@@ -44,12 +44,13 @@ The script will install packages required for this setup and symlink to the corr
 | :----------------------------------------------------- | :------------------------------------------------------------------ |
 | <kbd>Super</kbd> + <kbd>Enter</kbd>                    | Open terminal                                                       |
 | <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>Enter</kbd>  | Open launcher                                                       |
-| <kbd>Super</kbd> + <kbd>B</kbd>                        | Open Firefox                                                        |
-| <kbd>Super</kbd> + <kbd>E</kbd>                        | Open Nautilus                                                       |
+| <kbd>Super</kbd> + <kbd>B</kbd>                        | Open firefox                                                        |
+| <kbd>Super</kbd> + <kbd>E</kbd>                        | Open nautilus                                                       |
 | <kbd>Super</kbd> + <kbd>N</kbd>                        | Toggle notification center                                          |
 | <kbd>Super</kbd> + <kbd>L</kbd>                        | Launch lock screen                                                  |
 | <kbd>Super</kbd> + <kbd>C</kbd>                        | Launch clipboard manager                                            |
-| <kbd>Super</kbd> + <kbd>L</kbd>                        | Launch lock screen                                                  |
+| <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>W</kbd>      | Toggle waybar                                                       |
+| <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>P</kbd>      | Select power profile                                                |
 | <kbd>Super</kbd> + <kbd>Backspace</kbd>                | Launch logout screen                                                |
 | <kbd>XF86MonBrightnessUp</kbd>                         | Increase brightness by 10%                                          |
 | <kbd>XF86MonBrightnessDown</kbd>                       | Decrease brightness by 10%                                          |

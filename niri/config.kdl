@@ -27,6 +27,7 @@ output "eDP-1" {
     mode "2880x1880@90"
     scale 1.5
     transform "normal"
+    position x=0 y=0
 }
 output "HDMI-A-1" {
     // Transform allows to rotate the output counter-clockwise, valid values are:
@@ -35,27 +36,30 @@ output "HDMI-A-1" {
     // left
     // position x=-1920 y=0
     // right
-    // position x=1920 y=0
+    position x=1920 y=0
     // top
-    // position x=0 y=-1200
+    // the value would be based on the connected monitor
+    // position x=0 y=-1080
 }
 output "DP-1" {
     transform "normal"
     // left
     // position x=-1920 y=0
     // right
-    // position x=1920 y=0
+    position x=1920 y=0
     // top
-    // position x=0 y=-1200
+    // the value would be based on the connected monitor
+    // position x=0 y=-1080
 }
 output "DP-2" {
     transform "normal"
     // left
-    // position x=-1920 y=0
-    // right
     // position x=1920 y=0
+    // right
+    position x=-1920 y=0
     // top
-    // position x=0 y=-1200    
+    // the value would be based on the connected monitor
+    // position x=0 y=-1080    
 }
 
 // Settings that influence how windows are positioned and sized.
@@ -137,7 +141,8 @@ binds {
     Mod+E           { spawn "nautilus"; }
     Mod+N           { spawn "swaync-client" "-t" "-sw"; }
     Mod+L           { spawn "sh" "-c" "$HOME/Niri/scripts/swaylock.sh"; }
-    Mod+C           { spawn "sh" "-c" "cliphist list | rofi -dmenu -replace -config $HOME/Niri/rofi/config-cliphist.rasi | cliphist decode | wl-copy"; }    Mod+Ctrl+W      { spawn "sh" "-c" "$HOME/Niri/scripts/toggle-waybar.sh"; }
+    Mod+C           { spawn "sh" "-c" "cliphist list | rofi -dmenu -replace -config $HOME/Niri/rofi/config-cliphist.rasi | cliphist decode | wl-copy"; }
+    Mod+Ctrl+W      { spawn "sh" "-c" "$HOME/Niri/scripts/toggle-waybar.sh"; }
     Mod+Ctrl+P      { spawn "sh" "-c" "$HOME/Niri/scripts/power-profiles.sh set"; }
     Mod+Backspace   { spawn "sh" "-c" "$HOME/Niri/scripts/wlogout.sh"; }
 
