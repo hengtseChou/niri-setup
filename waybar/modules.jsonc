@@ -1,4 +1,12 @@
 {
+  "niri/workspaces": {
+    "disable-click": true,
+    "format": "{icon}",
+    "format-icons": {
+      "active": " ",
+      "default": " "
+    }
+  },
   "custom/media": {
     "format": "{}",
     "tooltip": true,

@@ -44,6 +44,26 @@ tooltip label {
   color: @content_main;
 }
 
+#workspaces {
+  color: transparent;
+  margin-right: 4px;
+  margin-left: 14px;
+}
+#workspaces button {
+  padding: 3px 3px;
+  transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+#workspaces button.active {
+  color: @content_main;
+}
+#workspaces button.focused {
+  color: @content_main;
+}
+#workspaces button.urgent {
+  background: rgba(255, 87, 51, 0.5);
+  color: @warning_color;
+}
+
 #custom-media,
 #custom-updates,
 #pulseaudio,

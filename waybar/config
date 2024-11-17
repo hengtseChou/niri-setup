@@ -9,6 +9,7 @@
     "$HOME/Niri/waybar/modules.jsonc"
   ],
   "modules-left": [
+    "niri/workspaces",
     "custom/media"
   ],
   "modules-center": [
