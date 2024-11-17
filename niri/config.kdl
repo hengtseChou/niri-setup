@@ -133,12 +133,11 @@ binds {
     // Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+Return      { spawn "alacritty"; }
     Mod+Ctrl+Return { spawn "sh" "-c" "rofi -show drun -replace -i -config $HOME/Niri/rofi/config.rasi"; }
-    Mod+L           { spawn "sh" "-c" "$HOME/Niri/scripts/swaylock.sh"; }
-    Mod+C           { spawn "sh" "-c" "cliphist list | rofi -dmenu -replace -config $HOME/Niri/rofi/config-cliphist.rasi | cliphist decode | wl-copy"; }
     Mod+B           { spawn "firefox"; }
     Mod+E           { spawn "nautilus"; }
     Mod+N           { spawn "swaync-client" "-t" "-sw"; }
-    Mod+Ctrl+W      { spawn "sh" "-c" "$HOME/Niri/scripts/toggle-waybar.sh"; }
+    Mod+L           { spawn "sh" "-c" "$HOME/Niri/scripts/swaylock.sh"; }
+    Mod+C           { spawn "sh" "-c" "cliphist list | rofi -dmenu -replace -config $HOME/Niri/rofi/config-cliphist.rasi | cliphist decode | wl-copy"; }    Mod+Ctrl+W      { spawn "sh" "-c" "$HOME/Niri/scripts/toggle-waybar.sh"; }
     Mod+Ctrl+P      { spawn "sh" "-c" "$HOME/Niri/scripts/power-profiles.sh set"; }
     Mod+Backspace   { spawn "sh" "-c" "$HOME/Niri/scripts/wlogout.sh"; }
 
@@ -159,15 +158,15 @@ binds {
     Mod+M { maximize-column; }
     Mod+F { fullscreen-window; }
 
+    Mod+Left  { move-column-left; }
+    Mod+Right { move-column-right; }
+    Mod+Down  { move-window-down; }
+    Mod+Up    { move-window-up; }
+
     Mod+Shift+Left  { set-column-width "-10%"; }
     Mod+Shift+Right { set-column-width "+10%"; }
     Mod+Shift+Up    { set-window-height "+10%"; }
     Mod+Shift+Down  { set-window-height "-10%"; }
-
-    Mod+Left  { move-column-left; }
-    Mod+Down  { move-window-down; }
-    Mod+Up    { move-window-up; }
-    Mod+Right { move-column-right; }
 
     Mod+Home      { focus-column-first; }
     Mod+End       { focus-column-last; }
@@ -185,10 +184,8 @@ binds {
     // Expel the bottom window from the focused column to the right.
     Mod+Period { expel-window-from-column; }
 
-    Mod+Page_Down      { move-workspace-down; }
-    Mod+Page_Up        { move-workspace-up; }
-    Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
-    Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
+    Mod+Page_Up        { move-column-to-workspace-up; }
+    Mod+Page_Down      { move-column-to-workspace-down; }
 
     Mod+1 { move-column-to-workspace 1; }
     Mod+2 { move-column-to-workspace 2; }
