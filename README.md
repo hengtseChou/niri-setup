@@ -16,6 +16,8 @@
 - **Terminal Font •** [JetBrains Mono Nerd Font](https://archlinux.org/packages/extra/any/ttf-jetbrains-mono-nerd/)
 - **Shell •** [zsh](https://www.zsh.org/) + [zinit](https://github.com/zdharma-continuum/zinit) + [starship](https://github.com/starship/starship)
 
+This setup follows a similar fashion to my [Hypr](https://github.com/hengtseChou/Hypr) dotfiles.
+
 # Screenshots
 
 ![screenshot1](https://i.imgur.com/A777YBM.png)
