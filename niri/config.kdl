@@ -168,6 +168,11 @@ binds {
     Mod+Down  { move-window-down; }
     Mod+Up    { move-window-up; }
 
+    Mod+WheelScrollDown      cooldown-ms=150 { focus-column-right; }
+    Mod+WheelScrollUp        cooldown-ms=150 { focus-column-left; }
+    Mod+Ctrl+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
+    Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { focus-workspace-up; }
+
     Mod+Shift+Left  { set-column-width "-10%"; }
     Mod+Shift+Right { set-column-width "+10%"; }
     Mod+Shift+Up    { set-window-height "+10%"; }
@@ -189,8 +194,8 @@ binds {
     // Expel the bottom window from the focused column to the right.
     Mod+Period { expel-window-from-column; }
 
-    Mod+Page_Up        { move-column-to-workspace-up; }
     Mod+Page_Down      { move-column-to-workspace-down; }
+    Mod+Page_Up        { move-column-to-workspace-up; }
 
     Mod+1 { move-column-to-workspace 1; }
     Mod+2 { move-column-to-workspace 2; }
