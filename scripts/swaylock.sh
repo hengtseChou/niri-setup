@@ -1,5 +1,5 @@
 #!/bin/bash
-niri msg action do-screen-transition --delay-ms 300
+niri msg action do-screen-transition --delay-ms 200
 swaylock  \
     --clock \
     --screenshots \
@@ -16,9 +16,9 @@ swaylock  \
     --key-hl-color b2bcc4ff \
     --ring-color 61768fff \
     --text-color  ffffffff \
-    --inside-clear-color 61768fff \
-    --ring-clear-color 61768fff \
-    --text-clear-color ffffffff \
+    --inside-clear-color b2bcc4ff \
+    --ring-clear-color b2bcc4ff \
+    --text-clear-color 0b0b0cff \
     --inside-ver-color b2bcc4ff \
     --ring-ver-color b2bcc4ff \
     --text-ver-color 0b0b0cff \
