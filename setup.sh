@@ -97,11 +97,10 @@ if [[ "$SHELL" != "/bin/zsh" ]]; then
 else
   echo ":: Setting up default shell: Already set to zsh"
   echo -e ":: Proceeding to the next step...\n"
-  sleep 3
 fi
 
 echo ":: Setting up configuration files..."
-echo "" && sleep 0.5
+echo "" && sleep 3
 sudo systemctl enable greetd.service
 sudo cp ./greetd/config.toml /etc/greetd/config.toml
 echo ":: Copied $PWD/greetd/config.toml to /etc/greetd/config.toml"
