@@ -115,13 +115,11 @@ change-wallpaper() {
   filename=$(basename -- "$file_path")
   extension="${filename##*.}"
 
-  # Check if the file exists
   if [ ! -e "$file_path" ]; then
     echo "Error: file '$file_path' does not exist"
     exit 1
   fi
 
-  # Check if the file format is supported
   supported_formats=("jpeg" "png" "gif" "pnm" "tga" "tiff" "webp" "bmp" "farbfeld" "jpg")
   if [[ ! " ${supported_formats[@]} " =~ " $extension " ]]; then
     echo "Error: file format '$extension' is not supported"
@@ -131,7 +129,6 @@ change-wallpaper() {
   wallpaper_dir="$HOME/Niri/wallpapers"
   current_wallpaper="$wallpaper_dir/current_wallpaper.$extension"
 
-  # remove old wallpaper
   rm "$wallpaper_dir/current_wallpaper."*
   cp -f "$file_path" "$wallpaper_dir/$filename"
   cp -f "$wallpaper_dir/$filename" "$current_wallpaper"
