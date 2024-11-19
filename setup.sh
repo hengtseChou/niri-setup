@@ -94,9 +94,15 @@ else
 fi
 sleep 3
 
-echo ":: Setting up default shell..."
-chsh -s /bin/zsh
-echo ""
+if [[ "$SHELL" != "/bin/zsh" ]]; then
+  echo ":: Setting up default shell..."
+  chsh -s /bin/zsh
+  echo -e ":: Done. Proceeding to the next step...\n"
+else
+  echo ":: Setting up default shell: Already set to zsh"
+  echo -e ":: Proceeding to the next step...\n"
+  sleep 3
+fi
 
 echo ":: Setting up configuration files..."
 echo "" && sleep 0.5
