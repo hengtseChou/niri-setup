@@ -53,31 +53,27 @@ theming=(
   sassc
 )
 
-clear
+echo -e "\n----- Niri configuration script -----\n"
 echo ":: Installing apps..."
 paru -S --needed "${apps[@]}"
-echo -e "\n:: Done. Proceeding to the next step..."
-time sleep 3
+echo -e ":: Done. Proceeding to the next step...\n"
+sleep 3
 
-clear
 echo ":: Installing utilies..."
 paru -S --needed "${utils[@]}"
-echo -e "\n:: Done. Proceeding to the next step..."
-time sleep 3
+echo -e ":: Done. Proceeding to the next step...\n"
+sleep 3
 
-clear
 echo ":: Installing fonts..."
 paru -S --needed "${fonts[@]}"
-echo -e "\n:: Done. Proceeding to the next step..."
-time sleep 3
+echo -e ":: Done. Proceeding to the next step...\n"
+sleep 3
 
-clear
 read -p ":: Skip theming? (y/N): " skip_theming
 skip_theming=${skip_theming:-N}
 if [[ "$skip_theming" =~ ^([yY])$ ]]; then
-  echo ":: Skipping theme installation."
-  echo ":: Proceeding to the next step..."
-  time sleep 3
+  echo ":: Skipping theme installation"
+  echo -e ":: Proceeding to the next step...\n"
 else
   echo ":: Installing theme..."
   paru -S --needed "${theming[@]}"
@@ -94,29 +90,37 @@ else
   gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
   gsettings set org.gnome.desktop.interface cursor-size 24
   gsettings set org.gnome.desktop.interface cursor-theme 'Adwaita'
-  echo -e "\n:: Done. Proceeding to the next step..."
-  time sleep 3
+  echo -e ":: Done. Proceeding to the next step...\n"
 fi
+sleep 3
 
-clear
+echo ":: Setting up default shell..."
 chsh -s /bin/zsh
+echo ""
 
+echo ":: Setting up configuration files..."
+echo "" && sleep 0.5
 sudo systemctl enable greetd.service
 sudo cp ./greetd/config.toml /etc/greetd/config.toml
 echo ":: Copied $PWD/greetd/config.toml to /etc/greetd/config.toml"
+echo "" && sleep 0.5
 
 ./symlink.sh $PWD/alacritty --to-config
+echo "" && sleep 0.5
 ./symlink.sh $PWD/niri --to-config
+echo "" && sleep 0.5
 ./symlink.sh $PWD/starship/starship.toml --to-config
+echo "" && sleep 0.5
 ./symlink.sh $PWD/swaync --to-config
+echo "" && sleep 0.5
 ./symlink.sh $PWD/zsh --to-config
+echo "" && sleep 0.5
 ./symlink.sh $PWD/zsh/.zshrc --to-home
+echo "" && sleep 0.5
 
 echo ":: Setting up fontconfig..."
 fc-cache -f
 gsettings set org.gnome.desktop.interface font-name 'Ubuntu 12'
 gsettings set org.gnome.desktop.interface monospace-font-name 'JetBrainsMono Nerd Font 12'
 
-echo ""
-echo ":: Niri configuration completed. "
-echo ":: Please reboot your system."
+echo -e "\n:: Niri configuration completed.\n"
