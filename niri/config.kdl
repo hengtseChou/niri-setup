@@ -143,8 +143,10 @@ binds {
     Mod+N           { spawn "swaync-client" "-t" "-sw"; }
     Mod+L           { spawn "sh" "-c" "$HOME/Niri/scripts/swaylock.sh"; }
     Mod+C           { spawn "sh" "-c" "cliphist list | rofi -dmenu -replace -config $HOME/Niri/rofi/config-cliphist.rasi | cliphist decode | wl-copy"; }
+    Mod+I           { spawn "sh" "-c" "$HOME/Niri/scripts/toggle-swayidle.sh"; }
+    Mod+O           { spawn "sh" "-c" "$HOME/Niri/scripts/toggle-laptop-screen.sh"; }
+    Mod+P           { spawn "sh" "-c" "$HOME/Niri/scripts/power-profiles.sh set"; }
     Mod+Ctrl+W      { spawn "sh" "-c" "$HOME/Niri/scripts/toggle-waybar.sh"; }
-    Mod+Ctrl+P      { spawn "sh" "-c" "$HOME/Niri/scripts/power-profiles.sh set"; }
     Mod+Backspace   { spawn "sh" "-c" "$HOME/Niri/scripts/wlogout.sh"; }
 
     XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "set" "+10%" ; }
