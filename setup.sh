@@ -57,17 +57,14 @@ echo -e "\n----- Niri configuration script -----\n"
 echo ":: Installing apps..."
 paru -S --needed "${apps[@]}"
 echo -e ":: Done. Proceeding to the next step...\n"
-sleep 3
 
 echo ":: Installing utilies..."
 paru -S --needed "${utils[@]}"
 echo -e ":: Done. Proceeding to the next step...\n"
-sleep 3
 
 echo ":: Installing fonts..."
 paru -S --needed "${fonts[@]}"
 echo -e ":: Done. Proceeding to the next step...\n"
-sleep 3
 
 read -p ":: Skip theming? (y/N): " skip_theming
 skip_theming=${skip_theming:-N}
@@ -92,7 +89,6 @@ else
   gsettings set org.gnome.desktop.interface cursor-theme 'Adwaita'
   echo -e ":: Done. Proceeding to the next step...\n"
 fi
-sleep 3
 
 if [[ "$SHELL" != "/bin/zsh" ]]; then
   echo ":: Setting up default shell..."
