@@ -102,6 +102,7 @@ spawn-at-startup "fcitx5" "-d" "--replace"
 spawn-at-startup "udiskie"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
+spawn-at-startup "xwayland-satellite"
 spawn-at-startup "sh" "-c" "swaybg -i $(find $HOME/Niri/wallpapers -type f -name 'current_wallpaper.*')"
 spawn-at-startup "sh" "-c" "waybar -c $HOME/Niri/waybar/config -s $HOME/Niri/waybar/style.css"
 spawn-at-startup "sh" "-c" "$HOME/Niri/scripts/swayidle.sh"
@@ -163,10 +164,20 @@ binds {
     Mod+M { maximize-column; }
     Mod+F { fullscreen-window; }
 
-    Mod+Left  { move-column-left; }
-    Mod+Right { move-column-right; }
-    Mod+Down  { move-window-down; }
-    Mod+Up    { move-window-up; }
+    Mod+Left  { focus-column-left; }
+    Mod+Right { focus-column-right; }
+    Mod+Down  { focus-window-down; }
+    Mod+Up    { focus-window-up; }
+
+    Mod+Ctrl+Left  { move-column-left; }
+    Mod+Ctrl+Right { move-column-right; }
+    Mod+Ctrl+Down  { move-window-down; }
+    Mod+Ctrl+Up    { move-window-up; }
+
+    Mod+Page_Down      { focus-workspace-down; }
+    Mod+Page_Up        { focus-workspace-up; }
+    Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
+    Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
 
     Mod+WheelScrollDown      cooldown-ms=150 { focus-column-right; }
     Mod+WheelScrollUp        cooldown-ms=150 { focus-column-left; }
@@ -194,19 +205,16 @@ binds {
     // Expel the bottom window from the focused column to the right.
     Mod+Period { expel-window-from-column; }
 
-    Mod+Page_Down      { move-column-to-workspace-down; }
-    Mod+Page_Up        { move-column-to-workspace-up; }
-
-    Mod+1 { move-column-to-workspace 1; }
-    Mod+2 { move-column-to-workspace 2; }
-    Mod+3 { move-column-to-workspace 3; }
-    Mod+4 { move-column-to-workspace 4; }
-    Mod+5 { move-column-to-workspace 5; }
-    Mod+6 { move-column-to-workspace 6; }
-    Mod+7 { move-column-to-workspace 7; }
-    Mod+8 { move-column-to-workspace 8; }
-    Mod+9 { move-column-to-workspace 9; }
-    Mod+0 { move-column-to-workspace 10; }
+    Mod+Ctrl+1 { move-column-to-workspace 1; }
+    Mod+Ctrl+2 { move-column-to-workspace 2; }
+    Mod+Ctrl+3 { move-column-to-workspace 3; }
+    Mod+Ctrl+4 { move-column-to-workspace 4; }
+    Mod+Ctrl+5 { move-column-to-workspace 5; }
+    Mod+Ctrl+6 { move-column-to-workspace 6; }
+    Mod+Ctrl+7 { move-column-to-workspace 7; }
+    Mod+Ctrl+8 { move-column-to-workspace 8; }
+    Mod+Ctrl+9 { move-column-to-workspace 9; }
+    Mod+Ctrl+0 { move-column-to-workspace 10; }
 
     Print       { screenshot; }
     Ctrl+Print  { screenshot-window; }
