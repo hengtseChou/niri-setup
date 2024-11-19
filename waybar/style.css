@@ -66,6 +66,7 @@ tooltip label {
 
 #custom-media,
 #custom-updates,
+#backlight,
 #pulseaudio,
 #battery,
 #network,
@@ -106,5 +107,4 @@ tooltip label {
 
 #custom-media {
   color: #8968cd;
-  margin: 0 0 0 14px;
 }
