@@ -31,7 +31,7 @@
     "return-type": "json",
     "exec": "$HOME/Niri/waybar/modules/count-updates.sh",
     "restart-interval": 60,
-    "on-click": "alacritty --class floating -e $HOME/Niri/waybar/modules/install-updates.sh",
+    "on-click": "alacritty -e $HOME/Niri/waybar/modules/install-updates.sh",
     "tooltip": false
   },
   "backlight": {
@@ -40,13 +40,15 @@
   },
   "pulseaudio": {
     "format": "{icon}",
-    "format-bluetooth": "{icon} ",
+    "format-bluetooth": "{icon}",
     "tooltip-format": "{desc} - {volume} %",
     "format-muted": " ",
     "on-click": "pwvucontrol",
     "format-icons": {
+      "headphone": " ",
       "default": [" ", " "]
-    }
+    },
+    "reverse-scrolling": true
   },
   "battery": {
     "states": {
