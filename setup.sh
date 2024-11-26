@@ -21,8 +21,10 @@ utils=(
   brightnessctl
   cliphist
   eza
+  fd
   figlet
   fzf
+  gum
   networkmanager
   polkit-gnome
   power-profiles-daemon
