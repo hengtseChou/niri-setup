@@ -1,6 +1,6 @@
 - **Window Manager •** [Niri](https://github.com/YaLTeR/niri)
 - **Display Manager •** [tuigreet](https://github.com/apognu/tuigreet)
-- **Launcher •** [rofi-wayland](https://github.com/lbonn/rofi)
+- **Launcher •** [Fuzzel](https://codeberg.org/dnkl/fuzzel)
 - **Panel •** [Waybar](https://github.com/Alexays/Waybar)
 - **Panel Font •** [Ubuntu Mono Nerd Font](https://archlinux.org/packages/extra/any/ttf-ubuntu-mono-nerd/) + [Noto Sans Mono CJK TC](https://archlinux.org/packages/extra/any/noto-fonts-cjk/)
 - **Notification •** [SwayNC](https://github.com/ErikReider/SwayNotificationCenter)
@@ -49,8 +49,10 @@ The script will install packages required for this setup and symlink to the corr
 | <kbd>Super</kbd> + <kbd>N</kbd>                                                                              | Toggle notification center                                          |
 | <kbd>Super</kbd> + <kbd>L</kbd>                                                                              | Launch lock screen                                                  |
 | <kbd>Super</kbd> + <kbd>C</kbd>                                                                              | Launch clipboard manager                                            |
+| <kbd>Super</kbd> + <kbd>I</kbd>                                                                              | Toggle idle daemon                                                  |
+| <kbd>Super</kbd> + <kbd>P</kbd>                                                                              | Select power profile                                                |
+| <kbd>Super</kbd> + <kbd>U</kbd>                                                                              | Launch updater                                                      |
 | <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>W</kbd>                                                            | Toggle waybar                                                       |
-| <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>P</kbd>                                                            | Select power profile                                                |
 | <kbd>Super</kbd> + <kbd>Backspace</kbd>                                                                      | Launch logout screen                                                |
 | <kbd>XF86MonBrightnessDown</kbd>                                                                             | Decrease brightness by 10%                                          |
 | <kbd>XF86MonBrightnessUp</kbd>                                                                               | Increase brightness by 10%                                          |

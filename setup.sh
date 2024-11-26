@@ -8,9 +8,9 @@ apps=(
   alacritty
   fastfetch
   fontconfig
+  fuzzel
   greetd-tuigreet
   niri
-  rofi-wayland
   swaync
   waybar
   wlogout
