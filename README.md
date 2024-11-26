@@ -20,11 +20,13 @@ This setup follows a similar fashion to my [Hypr](https://github.com/hengtseChou
 
 # Screenshots
 
-![screenshot1](https://i.imgur.com/oKOAPYg.png)
+![screenshot1](https://i.imgur.com/GFD5VfH.png)
 
-![screenshot2](https://i.imgur.com/W2rkviV.png)
+![screenshot2](https://i.imgur.com/kVWkPyy.png)
 
-![screenshot3](https://i.imgur.com/7ffEhLz.png)
+![screenshot3](https://i.imgur.com/dNIMi1d.png)
+
+![screenshot4](https://i.imgur.com/9GLaLjH.png)
 
 # Installation
 
