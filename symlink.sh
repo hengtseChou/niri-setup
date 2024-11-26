@@ -59,21 +59,37 @@ if [ -L "${target}" ]; then
   # is a symlink
   rm ${target}
   ln -s ${source} ${target}
-  echo ":: Existing symlink ${target} removed."
-  echo ":: Symlink ${source} -> ${target} created."
+  if [ $? -eq 0 ]; then
+    echo ":: Existing symlink ${target} removed."
+    echo ":: Symlink ${source} -> ${target} created."
+  else
+    exit 1
+  fi
 elif [ -d ${target} ]; then
   # is a dir
   rm -rf ${target}/
   ln -s ${source} ${target}
-  echo ":: Existing directory ${target} removed."
-  echo ":: Symlink ${source} -> ${target} created."
+  if [ $? -eq 0 ]; then
+    echo ":: Existing directory ${target} removed."
+    echo ":: Symlink ${source} -> ${target} created."
+  else
+    exit 1
+  fi
 elif [ -f ${target} ]; then
   # is a file
   rm ${target}
   ln -s ${source} ${target}
-  echo ":: Existing file ${target} removed."
-  echo ":: Symlink ${source} -> ${target} created."
+  if [ $? -eq 0 ]; then
+    echo ":: Existing file ${target} removed."
+    echo ":: Symlink ${source} -> ${target} created."
+  else
+    exit 1
+  fi
 else
   ln -s ${source} ${target}
-  echo ":: New symlink ${source} -> ${target} created."
+  if [ $? -eq 0 ]; then
+    echo ":: New symlink ${source} -> ${target} created."
+  else
+    exit 1
+  fi
 fi
