@@ -155,10 +155,10 @@ binds {
     XF86AudioLowerVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
     XF86AudioMute         allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
     XF86AudioMicMute      allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
-    XF86AudioPlay         allow-when-locked=true { spawn "wpctl" "playerctl" "play-pause"; }
-    XF86AudioPause        allow-when-locked=true { spawn "wpctl" "playerctl" "pause"; }
-    XF86AudioNext         allow-when-locked=true { spawn "wpctl" "playerctl" "next"; }
-    XF86AudioPrev         allow-when-locked=true { spawn "wpctl" "playerctl" "previous"; }
+    XF86AudioPlay         allow-when-locked=true { spawn "playerctl" "play-pause"; }
+    XF86AudioPause        allow-when-locked=true { spawn "playerctl" "pause"; }
+    XF86AudioNext         allow-when-locked=true { spawn "playerctl" "next"; }
+    XF86AudioPrev         allow-when-locked=true { spawn "playerctl" "previous"; }
 
     Mod+Q { close-window; }
     Mod+W { switch-preset-column-width; }
