@@ -144,7 +144,6 @@ binds {
     Mod+L           { spawn "sh" "-c" "$HOME/Niri/scripts/swaylock.sh"; }
     Mod+C           { spawn "sh" "-c" "cliphist list | fuzzel --dmenu  --config $HOME/Niri/fuzzel/fuzzel.ini | cliphist decode | wl-copy"; }
     Mod+I           { spawn "sh" "-c" "$HOME/Niri/scripts/toggle-swayidle.sh"; }
-    Mod+O           { spawn "sh" "-c" "$HOME/Niri/scripts/toggle-laptop-screen.sh"; }
     Mod+P           { spawn "sh" "-c" "$HOME/Niri/scripts/power-profiles.sh"; }
     Mod+U           { spawn "sh" "-c" "alacritty -e $HOME/Niri/waybar/modules/install-updates.sh"; }
     Mod+Ctrl+W      { spawn "sh" "-c" "$HOME/Niri/scripts/toggle-waybar.sh"; }
