@@ -11,3 +11,33 @@ opacity = 0.7
 [window.padding]
 x = 15
 y = 15
+
+[colors.primary]
+foreground = "#d8dadd"  # Text color
+background = "#0b0b0c"  # Background color
+
+[colors.cursor]
+text = '#0b0b0c'
+cursor = '#d8dadd'
+
+# Normal colors
+[colors.normal]
+black   = "#0b0b0c"
+red     = "#61768F"
+green   = "#758A9B"
+yellow  = "#949EA3"
+blue    = "#B2BCC4"
+magenta = "#BCC2C6"
+cyan    = "#B7D4ED"
+white   = "#d8dadd"
+
+# Bright colors
+[colors.bright]
+black   = "#97989a"
+red     = "#61768F"
+green   = "#758A9B"
+yellow  = "#949EA3"
+blue    = "#B2BCC4"
+magenta = "#BCC2C6"
+cyan    = "#B7D4ED"
+white   = "#d8dadd"

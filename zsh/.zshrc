@@ -59,7 +59,12 @@ setopt hist_find_no_dups
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza --icons --group-directories-first $realpath'
-export FZF_CTRL_R_OPTS="--layout=reverse"
+export FZF_DEFAULT_OPTS="
+  --color=fg:#d8dadd,bg:#0b0b0c,hl:#B7D4ED
+  --color=fg+:#d8dadd,bg+:#61768F,hl+:#BCC2C6
+  --color=info:#B2BCC4,prompt:#758A9B,pointer:#B7D4ED
+  --color=marker:#BCC2C6,spinner:#B7D4ED,header:#949EA3
+  --layout=reverse"
 
 bindkey "^[[H" beginning-of-line
 bindkey "^[[F" end-of-line
@@ -141,7 +146,11 @@ change-wallpaper() {
   echo "Mode: $mode"
   pkill swaybg
   (eval $new_cmd &>/dev/null &)
-  echo "OK!"
+  if [ "$?" -eq 0 ]; then
+    echo "OK!"
+  else
+    exit 1
+  fi
 }
 
 xs() {

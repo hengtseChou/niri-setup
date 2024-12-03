@@ -1,0 +1,30 @@
+# ANSI Colors
+Color0:  #0b0b0c  # Black
+Color1:  #61768F  # Red
+Color2:  #758A9B  # Green
+Color3:  #949EA3  # Yellow
+Color4:  #B2BCC4  # Blue
+Color5:  #BCC2C6  # Magenta
+Color6:  #B7D4ED  # Cyan
+Color7:  #d8dadd  # White
+
+# Bright ANSI Colors
+Color8:  #97989a  # Bright Black
+Color9:  #61768F  # Bright Red
+Color10: #758A9B  # Bright Green
+Color11: #949EA3  # Bright Yellow
+Color12: #B2BCC4  # Bright Blue
+Color13: #BCC2C6  # Bright Magenta
+Color14: #B7D4ED  # Bright Cyan
+Color15: #d8dadd  # Bright White
+
+# Text and Background Colors
+Foreground: #d8dadd  # Text (Light Gray)
+Background: #0b0b0c  # Background (Dark Black)
+Cursor:     #d8dadd  # Cursor
+
+# Highlight and Special Colors
+HighlightText: #d8dadd
+CursorText:    #0b0b0c
+SpecialColor232: #0b0b0c
+SpecialColor256: #d8dadd

@@ -36,10 +36,10 @@ output "HDMI-A-1" {
     // left
     // position x=-1920 y=0
     // right
-    position x=1920 y=0
+    // position x=1920 y=0
     // top
     // the value would be based on the connected monitor
-    // position x=0 y=-1080
+    position x=0 y=-1080
 }
 output "DP-1" {
     transform "normal"
@@ -83,8 +83,8 @@ layout {
     default-column-width { proportion 0.5; }
     focus-ring {
         width 2
-        active-color "#ffffff"
-        inactive-color "#505050"
+        active-color "#d8dadd"
+        inactive-color "#0b0b0c"
     }
     border {
         off
@@ -102,11 +102,9 @@ spawn-at-startup "fcitx5" "-d" "--replace"
 spawn-at-startup "udiskie"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
-spawn-at-startup "xwayland-satellite"
-spawn-at-startup "sh" "-c" "swaybg -i $(find $HOME/Niri/wallpapers -type f -name 'current_wallpaper.*')"
+spawn-at-startup "sh" "-c" "swaybg -i /home/hank/Pictures/Wallpapers/133547716_3602827073165173_8137721620768072355_o.jpg -m fit -c 000000"
 spawn-at-startup "sh" "-c" "waybar -c $HOME/Niri/waybar/config -s $HOME/Niri/waybar/style.css"
 spawn-at-startup "sh" "-c" "$HOME/Niri/scripts/swayidle.sh"
-spawn-at-startup "sh" "-c" "$HOME/Niri/symlink.sh $HOME/Niri/swaync --to-config"
 spawn-at-startup "swaync"
 hotkey-overlay {
     skip-at-startup
@@ -131,6 +129,8 @@ window-rule {
 window-rule {
     match title="Firefox"
     match title="Visual Studio Code"
+    match title="Zotero"
+    match title="RStudio"
     default-column-width { proportion 1.0; }
 }
 
@@ -176,25 +176,25 @@ binds {
     Mod+Ctrl+Down  { move-window-down; }
     Mod+Ctrl+Up    { move-window-up; }
 
+    Mod+Home      { focus-column-first; }
+    Mod+End       { focus-column-last; }
+    Mod+Ctrl+Home { move-column-to-first; }
+    Mod+Ctrl+End  { move-column-to-last; }
+
     Mod+Page_Down      { focus-workspace-down; }
     Mod+Page_Up        { focus-workspace-up; }
     Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
     Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
 
-    Mod+WheelScrollDown      cooldown-ms=150 { focus-column-right; }
-    Mod+WheelScrollUp        cooldown-ms=150 { focus-column-left; }
-    Mod+Ctrl+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
-    Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { focus-workspace-up; }
+    // Mod+WheelScrollDown      cooldown-ms=150 { focus-column-right; }
+    // Mod+WheelScrollUp        cooldown-ms=150 { focus-column-left; }
+    // Mod+Ctrl+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
+    // Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { focus-workspace-up; }
 
     Mod+Shift+Left  { set-column-width "-10%"; }
     Mod+Shift+Right { set-column-width "+10%"; }
     Mod+Shift+Up    { set-window-height "+10%"; }
     Mod+Shift+Down  { set-window-height "-10%"; }
-
-    Mod+Home      { focus-column-first; }
-    Mod+End       { focus-column-last; }
-    Mod+Ctrl+Home { move-column-to-first; }
-    Mod+Ctrl+End  { move-column-to-last; }
 
     // The following binds move the focused window in and out of a column.
     // If the window is alone, they will consume it into the nearby column to the side.
