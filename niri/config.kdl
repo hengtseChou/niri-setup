@@ -100,6 +100,7 @@ layout {
 // startup processes
 spawn-at-startup "fcitx5" "-d" "--replace"
 spawn-at-startup "udiskie"
+spawn-at-startup "xwayland-satellite"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-at-startup "sh" "-c" "wl-paste --watch cliphist store"
 spawn-at-startup "sh" "-c" "waybar -c $NIRICONF/waybar/config -s $NIRICONF/waybar/style.css"
