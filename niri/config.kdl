@@ -101,11 +101,11 @@ layout {
 spawn-at-startup "fcitx5" "-d" "--replace"
 spawn-at-startup "udiskie"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
-spawn-at-startup "sh" "-c" "swaybg -i /home/hank/Pictures/Wallpapers/133547716_3602827073165173_8137721620768072355_o.jpg -m fit -c 000000"
-spawn-at-startup "sh" "-c" "waybar -c $HOME/Niri/waybar/config -s $HOME/Niri/waybar/style.css"
-spawn-at-startup "sh" "-c" "$HOME/Niri/scripts/swayidle.sh"
-spawn-at-startup "swaync"
+spawn-at-startup "sh" "-c" "wl-paste --watch cliphist store"
+spawn-at-startup "sh" "-c" "waybar -c $NIRICONF/waybar/config -s $NIRICONF/waybar/style.css"
+spawn-at-startup "sh" "-c" "$NIRICONF/scripts/swayidle.sh"
+spawn-at-startup "sh" "-c" "swaybg -i $NIRICONF/wallpapers/default.jpg -m fit -c 000000"
+spawn-at-startup "sh" "-c" "swaync -s $NIRICONF/swaync/style.css -c $NIRICONF/swaync/config.json"
 hotkey-overlay {
     skip-at-startup
 }
@@ -136,88 +136,75 @@ window-rule {
 
 binds {
     // Mod+Shift+Slash { show-hotkey-overlay; }
-    Mod+Return      { spawn "alacritty"; }
-    Mod+Ctrl+Return { spawn "sh" "-c" "fuzzel --config $HOME/Niri/fuzzel/fuzzel.ini"; }
+    // Applications
+    Mod+Return      { spawn "sh" "-c" "alacritty --config-file $NIRICONF/alacritty/alacritty.toml"; }
+    Mod+Ctrl+Return { spawn "sh" "-c" "fuzzel --config $NIRICONF/fuzzel/fuzzel.ini"; }
     Mod+B           { spawn "firefox"; }
     Mod+E           { spawn "nautilus"; }
-    Mod+N           { spawn "swaync-client" "-t" "-sw"; }
-    Mod+L           { spawn "sh" "-c" "$HOME/Niri/scripts/swaylock.sh"; }
-    Mod+C           { spawn "sh" "-c" "cliphist list | fuzzel --dmenu  --config $HOME/Niri/fuzzel/fuzzel.ini | cliphist decode | wl-copy"; }
-    Mod+I           { spawn "sh" "-c" "$HOME/Niri/scripts/toggle-swayidle.sh"; }
-    Mod+P           { spawn "sh" "-c" "$HOME/Niri/scripts/power-profiles.sh"; }
-    Mod+U           { spawn "sh" "-c" "alacritty -e $HOME/Niri/waybar/modules/install-updates.sh"; }
-    Mod+Ctrl+W      { spawn "sh" "-c" "$HOME/Niri/scripts/toggle-waybar.sh"; }
-    Mod+Backspace   { spawn "sh" "-c" "$HOME/Niri/scripts/wlogout.sh"; }
+    Mod+N           { spawn "sh" "-c" "swaync-client -t -sw"; }
+    Mod+L           { spawn "sh" "-c" "$NIRICONF/scripts/swaylock.sh"; }
+    Mod+C           { spawn "sh" "-c" "cliphist list | fuzzel --dmenu  --config $NIRICONF/fuzzel/fuzzel.ini | cliphist decode | wl-copy"; }
+    Mod+I           { spawn "sh" "-c" "$NIRICONF/scripts/toggle-swayidle.sh"; }
+    Mod+P           { spawn "sh" "-c" "$NIRICONF/scripts/power-profiles.sh"; }
+    Mod+U           { spawn "sh" "-c" "alacritty -e $NIRICONF/waybar/modules/install-updates.sh"; }
+    Mod+Ctrl+W      { spawn "sh" "-c" "$NIRICONF/scripts/toggle-waybar.sh"; }
+    Mod+Backspace   { spawn "sh" "-c" "$NIRICONF/scripts/wlogout.sh"; }
 
+    // Backlight and Audio
     XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "set" "+10%" ; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "10%-" ; }
     XF86AudioRaiseVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
     XF86AudioLowerVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
     XF86AudioMute         allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-    XF86AudioMicMute      allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
     XF86AudioPlay         allow-when-locked=true { spawn "playerctl" "play-pause"; }
     XF86AudioPause        allow-when-locked=true { spawn "playerctl" "pause"; }
     XF86AudioNext         allow-when-locked=true { spawn "playerctl" "next"; }
     XF86AudioPrev         allow-when-locked=true { spawn "playerctl" "previous"; }
 
-    Mod+Q { close-window; }
-    Mod+W { switch-preset-column-width; }
-    Mod+H { switch-preset-window-height; }
-    Mod+M { maximize-column; }
-    Mod+F { fullscreen-window; }
+    // Windows and Columns
+    Mod+Q            { close-window; }
+    Mod+W            { switch-preset-column-width; }
+    Mod+H            { switch-preset-window-height; }
+    Mod+M            { maximize-column; }
+    Mod+F            { fullscreen-window; }
+    Mod+Left         { focus-column-left; }
+    Mod+Right        { focus-column-right; }
+    Mod+Down         { focus-window-down; }
+    Mod+Up           { focus-window-up; }
+    Mod+Ctrl+Left    { move-column-left; }
+    Mod+Ctrl+Right   { move-column-right; }
+    Mod+Ctrl+Down    { move-window-down; }
+    Mod+Ctrl+Up      { move-window-up; }
+    Mod+Home         { focus-column-first; }
+    Mod+End          { focus-column-last; }
+    Mod+Ctrl+Home    { move-column-to-first; }
+    Mod+Ctrl+End     { move-column-to-last; }
+    Mod+Shift+Left   { set-column-width "-10%"; }
+    Mod+Shift+Right  { set-column-width "+10%"; }
+    Mod+Shift+Up     { set-window-height "+10%"; }
+    Mod+Shift+Down   { set-window-height "-10%"; }
+    Mod+BracketLeft  { consume-or-expel-window-left; }
+    Mod+BracketRight { consume-or-expel-window-right; }
+    Mod+Comma        { consume-window-into-column; }
+    Mod+Period       { expel-window-from-column; }
 
-    Mod+Left  { focus-column-left; }
-    Mod+Right { focus-column-right; }
-    Mod+Down  { focus-window-down; }
-    Mod+Up    { focus-window-up; }
-
-    Mod+Ctrl+Left  { move-column-left; }
-    Mod+Ctrl+Right { move-column-right; }
-    Mod+Ctrl+Down  { move-window-down; }
-    Mod+Ctrl+Up    { move-window-up; }
-
-    Mod+Home      { focus-column-first; }
-    Mod+End       { focus-column-last; }
-    Mod+Ctrl+Home { move-column-to-first; }
-    Mod+Ctrl+End  { move-column-to-last; }
-
+    // Workspaces
     Mod+Page_Down      { focus-workspace-down; }
     Mod+Page_Up        { focus-workspace-up; }
     Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
     Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
+    Mod+Ctrl+1         { move-column-to-workspace 1; }
+    Mod+Ctrl+2         { move-column-to-workspace 2; }
+    Mod+Ctrl+3         { move-column-to-workspace 3; }
+    Mod+Ctrl+4         { move-column-to-workspace 4; }
+    Mod+Ctrl+5         { move-column-to-workspace 5; }
+    Mod+Ctrl+6         { move-column-to-workspace 6; }
+    Mod+Ctrl+7         { move-column-to-workspace 7; }
+    Mod+Ctrl+8         { move-column-to-workspace 8; }
+    Mod+Ctrl+9         { move-column-to-workspace 9; }
+    Mod+Ctrl+0         { move-column-to-workspace 10; }
 
-    // Mod+WheelScrollDown      cooldown-ms=150 { focus-column-right; }
-    // Mod+WheelScrollUp        cooldown-ms=150 { focus-column-left; }
-    // Mod+Ctrl+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
-    // Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { focus-workspace-up; }
-
-    Mod+Shift+Left  { set-column-width "-10%"; }
-    Mod+Shift+Right { set-column-width "+10%"; }
-    Mod+Shift+Up    { set-window-height "+10%"; }
-    Mod+Shift+Down  { set-window-height "-10%"; }
-
-    // The following binds move the focused window in and out of a column.
-    // If the window is alone, they will consume it into the nearby column to the side.
-    // IF the window is already in a column, they will expel it out.
-    Mod+BracketLeft  { consume-or-expel-window-left; }
-    Mod+BracketRight { consume-or-expel-window-right; }
-
-    // Consume one window from the right to the bottom of the focused column.
-    Mod+Comma  { consume-window-into-column; }
-    // Expel the bottom window from the focused column to the right.
-    Mod+Period { expel-window-from-column; }
-
-    Mod+Ctrl+1 { move-column-to-workspace 1; }
-    Mod+Ctrl+2 { move-column-to-workspace 2; }
-    Mod+Ctrl+3 { move-column-to-workspace 3; }
-    Mod+Ctrl+4 { move-column-to-workspace 4; }
-    Mod+Ctrl+5 { move-column-to-workspace 5; }
-    Mod+Ctrl+6 { move-column-to-workspace 6; }
-    Mod+Ctrl+7 { move-column-to-workspace 7; }
-    Mod+Ctrl+8 { move-column-to-workspace 8; }
-    Mod+Ctrl+9 { move-column-to-workspace 9; }
-    Mod+Ctrl+0 { move-column-to-workspace 10; }
-
+    // Screenshots
     Print       { screenshot; }
     Ctrl+Print  { screenshot-window; }
     Shift+Print { screenshot-screen; }

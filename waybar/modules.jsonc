@@ -18,7 +18,7 @@
     "on-click-right": "playerctl stop",
     "on-scroll-up": "playerctl previous",
     "on-scroll-down": "playerctl next",
-    "exec": "$HOME/Niri/waybar/modules/media-player.py 2> /dev/null"
+    "exec": "$NIRICONF/waybar/modules/media-player.py 2> /dev/null"
   },
   "niri/window": {
     "icon": true,
@@ -29,9 +29,9 @@
     "format": "  {}",
     "escape": true,
     "return-type": "json",
-    "exec": "$HOME/Niri/waybar/modules/count-updates.sh",
+    "exec": "$NIRICONF/waybar/modules/count-updates.sh",
     "restart-interval": 60,
-    "on-click": "alacritty -e $HOME/Niri/waybar/modules/install-updates.sh",
+    "on-click": "alacritty -e $NIRICONF/waybar/modules/install-updates.sh",
     "tooltip": false
   },
   "backlight": {
@@ -102,8 +102,8 @@
     "format": "{}",
     "escape": true,
     "return-type": "json",
-    "exec": "$HOME/Niri/waybar/modules/check-swayidle.sh",
-    "on-click": "$HOME/Niri/scripts/toggle-swayidle.sh",
+    "exec": "$NIRICONF/waybar/modules/check-swayidle.sh",
+    "on-click": "$NIRICONF/scripts/toggle-swayidle.sh",
     "restart-interval": 1
   },
   "clock": {

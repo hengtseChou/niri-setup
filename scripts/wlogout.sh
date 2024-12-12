@@ -1,2 +1,2 @@
 #!/bin/bash
-wlogout -C $HOME/Niri/wlogout/style.css -l $HOME/Niri/wlogout/layout -b 5 -T 400 -B 400
+wlogout -C $NIRICONF/wlogout/style.css -l $NIRICONF/wlogout/layout -b 5 -T 400 -B 400

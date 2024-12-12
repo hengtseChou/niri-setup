@@ -6,7 +6,7 @@
   "margin-right": 0,
   "spacing": 0,
   "include": [
-    "$HOME/Niri/waybar/modules.jsonc"
+    "$NIRICONF/waybar/modules.jsonc"
   ],
   "modules-left": [
     "niri/workspaces",

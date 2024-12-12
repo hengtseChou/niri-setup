@@ -1,129 +1,126 @@
 #!/bin/bash
-if ! command -v paru 2>&1 >/dev/null; then
-  echo ":: Error: paru is not installed. Exiting."
+is_installed() {
+  pacman -Qi "$1" &>/dev/null
+}
+
+if ! is_installed gum; then
+  echo "[Error] missing dependency: gum"
   exit 1
 fi
 
-apps=(
-  alacritty
-  fastfetch
-  fontconfig
-  fuzzel
-  greetd-tuigreet
-  niri
-  swaync
-  waybar
-  wlogout
-  zsh
-)
+symlink() {
+  source="$1"
+  shift
+  PARSED=$(getopt -o '' --long to-home,to-config,custom-dir: -- "$@")
+  if [[ $? -ne 0 ]]; then
+    return 1
+  fi
+  eval set -- "$PARSED"
 
-utils=(
+  target_dir=""
+  while true; do
+    case "$1" in
+    --to-home)
+      target_dir="$HOME"
+      shift
+      ;;
+    --to-config)
+      target_dir="$HOME/.config"
+      shift
+      ;;
+    --custom-dir)
+      target_dir="$2"
+      mkdir -p $target_dir
+      shift 2
+      ;;
+    --)
+      shift # End of options
+      break
+      ;;
+    *)
+      echo "Invalid option: $1" >&2
+      return 1
+      ;;
+    esac
+  done
+
+  # If no valid options were provided (target_dir is empty), show an error and exit
+  if [ -z "$target_dir" ]; then
+    echo "[Error] target dir $target_dir is empty"
+    return 1
+  fi
+
+  target="$target_dir/$(basename $source)"
+
+  if [ -L "${target}" ]; then
+    # is a symlink
+    rm ${target}
+    ln -s ${source} ${target}
+  elif [ -d ${target} ]; then
+    # is a dir
+    rm -rf ${target}/
+    ln -s ${source} ${target}
+  elif [ -f ${target} ]; then
+    # is a file
+    rm ${target}
+    ln -s ${source} ${target}
+  else
+    ln -s ${source} ${target}
+  fi
+}
+
+helper_options=(
+  paru
+  yay
+  aura
+  trizen
+)
+available_helpers=()
+for helper in "${helper_options[@]}"; do
+  if is_installed "$helper"; then
+    available_helpers+=("$helper")
+  fi
+done
+if [ ${#available_helpers[@]} -eq 0 ]; then
+  echo "[Error] no AUR helper available. please install one of {yay, paru, aura, trizen}."
+  exit 1
+fi
+
+export GUM_CHOOSE_HEADER_FOREGROUND="$#d8dadd"
+export GUM_CHOOSE_SELECTED_FOREGROUND="#758A9B"
+export GUM_CHOOSE_CURSOR_FOREGROUND="#758A9B"
+
+aur=$(gum choose "${available_helpers[@]}" --header "Choose an AUR helper:" --select-if-one)
+
+pkgs=(
+  alacritty
+  blueman
   brightnessctl
   cliphist
-  eza
-  fd
-  figlet
-  fzf
-  gum
-  networkmanager
+  fuzzel
+  niri
+  pamixer
   polkit-gnome
-  power-profiles-daemon
   pwvucontrol
-  starship  
   swaybg
   swayidle
   swaylock-effects
+  swaync
   udiskie
+  waybar
+  wlogout
   xwayland-satellite
-  zoxide
 )
 
-fonts=(
-  noto-fonts-cjk
-  noto-fonts-emoji
-  ttf-jetbrains-mono-nerd
-  ttf-ubuntu-font-family
-  ttf-ubuntu-mono-nerd
-)
+$aur -Syu --needed $(echo "${pkgs[*]}")
+symlink $config_folder/niri --to-config
+sed -i "s|\$NIRICONF|$config_folder|g" $(realpath "$config_folder/niri/config.kdl")
+sed -i "s|\$NIRICONF|$config_folder|g" $(realpath "$config_folder/scripts/power-profiles.sh")
+sed -i "s|\$NIRICONF|$config_folder|g" $(realpath "$config_folder/scripts/swayidle.sh")
+sed -i "s|\$NIRICONF|$config_folder|g" $(realpath "$config_folder/scripts/toggle-swayidle.sh")
+sed -i "s|\$NIRICONF|$config_folder|g" $(realpath "$config_folder/scripts/toggle-waybar.sh")
+sed -i "s|\$NIRICONF|$config_folder|g" $(realpath "$config_folder/scripts/wlogout.sh")
+sed -i "s|\$NIRICONF|$config_folder|g" $(realpath "$config_folder/waybar/config")
+sed -i "s|\$NIRICONF|$config_folder|g" $(realpath "$config_folder/waybar/modules.jsonc")
+echo "niri setup all completed"
 
-theming=(
-  adwaita-cursors
-  gnome-themes-extra
-  gtk3
-  gtk4
-  gtk-engine-murrine
-  sassc
-)
-
-echo -e "\n----- Niri configuration script -----\n"
-echo ":: Installing apps..."
-paru -S --needed "${apps[@]}"
-echo -e ":: Done. Proceeding to the next step...\n"
-
-echo ":: Installing utilies..."
-paru -S --needed "${utils[@]}"
-echo -e ":: Done. Proceeding to the next step...\n"
-
-echo ":: Installing fonts..."
-paru -S --needed "${fonts[@]}"
-echo -e ":: Done. Proceeding to the next step...\n"
-
-read -p ":: Skip theming? (y/N): " skip_theming
-skip_theming=${skip_theming:-N}
-if [[ "$skip_theming" =~ ^([yY])$ ]]; then
-  echo ":: Skipping theme installation"
-  echo -e ":: Proceeding to the next step...\n"
-else
-  echo ":: Installing theme..."
-  paru -S --needed "${theming[@]}"
-  git clone https://github.com/vinceliuice/Colloid-gtk-theme.git
-  cd Colloid-gtk-theme
-  ./install.sh
-  cd ..
-  git clone https://github.com/vinceliuice/Colloid-icon-theme.git
-  cd Colloid-icon-theme
-  ./install.sh
-  cd ..
-  gsettings set org.gnome.desktop.interface gtk-theme 'Colloid'
-  gsettings set org.gnome.desktop.interface icon-theme 'Colloid'
-  gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-  gsettings set org.gnome.desktop.interface cursor-size 24
-  gsettings set org.gnome.desktop.interface cursor-theme 'Adwaita'
-  echo -e ":: Done. Proceeding to the next step...\n"
-fi
-
-if [[ "$SHELL" != "/bin/zsh" ]]; then
-  echo ":: Setting up default shell..."
-  chsh -s /bin/zsh
-  echo -e ":: Done. Proceeding to the next step...\n"
-else
-  echo ":: Setting up default shell: Already set to zsh"
-  echo -e ":: Proceeding to the next step...\n"
-fi
-
-echo ":: Setting up configuration files..."
-echo "" && sleep 3
-sudo systemctl enable greetd.service
-sudo cp ./greetd/config.toml /etc/greetd/config.toml
-echo ":: Copied $PWD/greetd/config.toml to /etc/greetd/config.toml"
-echo "" && sleep 0.5
-
-./symlink.sh $PWD/alacritty --to-config
-echo "" && sleep 0.5
-./symlink.sh $PWD/niri --to-config
-echo "" && sleep 0.5
-./symlink.sh $PWD/starship/starship.toml --to-config
-echo "" && sleep 0.5
-./symlink.sh $PWD/swaync --to-config
-echo "" && sleep 0.5
-./symlink.sh $PWD/zsh --to-config
-echo "" && sleep 0.5
-./symlink.sh $PWD/zsh/.zshrc --to-home
-echo "" && sleep 0.5
-
-echo ":: Setting up fontconfig..."
-fc-cache -f
-gsettings set org.gnome.desktop.interface font-name 'Ubuntu 12'
-gsettings set org.gnome.desktop.interface monospace-font-name 'JetBrainsMono Nerd Font 12'
-
-echo -e "\n:: Niri configuration completed.\n"

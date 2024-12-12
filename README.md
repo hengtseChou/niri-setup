@@ -16,8 +16,6 @@
 - **Terminal Font •** [JetBrains Mono Nerd Font](https://archlinux.org/packages/extra/any/ttf-jetbrains-mono-nerd/)
 - **Shell •** [zsh](https://www.zsh.org/) + [zinit](https://github.com/zdharma-continuum/zinit) + [starship](https://github.com/starship/starship)
 
-This setup follows a similar fashion to my [Hypr](https://github.com/hengtseChou/Hypr) dotfiles.
-
 # Screenshots
 
 ![screenshot1](https://i.imgur.com/GFD5VfH.png)
@@ -36,66 +34,86 @@ cd Niri
 ./setup.sh
 ```
 
-The script will install packages required for this setup and symlink to the corresponding directories. Some apps as seen in alias from `.zshrc` or keybindings from `niri/config.kdl` may consider optional and therefore not be included.
+The script will install packages required for this setup and symlink to the corresponding directories. Make sure you have one of the AUR helpers installed.
 
-# Keybinds
+For the dotfiles of `tuigreet` and `zsh`, please refer to [my main configuration repo](https://github.com/hengtseChou/Conf).
 
-<div align="center">
+# Keybindings
 
-| Keys                                                                                                         | Action                                                              |
-| :----------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------ |
-| <kbd>Super</kbd> + <kbd>Enter</kbd>                                                                          | Open terminal                                                       |
-| <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>Enter</kbd>                                                        | Open launcher                                                       |
-| <kbd>Super</kbd> + <kbd>B</kbd>                                                                              | Open firefox                                                        |
-| <kbd>Super</kbd> + <kbd>E</kbd>                                                                              | Open nautilus                                                       |
-| <kbd>Super</kbd> + <kbd>N</kbd>                                                                              | Toggle notification center                                          |
-| <kbd>Super</kbd> + <kbd>L</kbd>                                                                              | Launch lock screen                                                  |
-| <kbd>Super</kbd> + <kbd>C</kbd>                                                                              | Launch clipboard manager                                            |
-| <kbd>Super</kbd> + <kbd>I</kbd>                                                                              | Toggle idle daemon                                                  |
-| <kbd>Super</kbd> + <kbd>P</kbd>                                                                              | Select power profile                                                |
-| <kbd>Super</kbd> + <kbd>U</kbd>                                                                              | Launch updater                                                      |
-| <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>W</kbd>                                                            | Toggle waybar                                                       |
-| <kbd>Super</kbd> + <kbd>Backspace</kbd>                                                                      | Launch logout screen                                                |
-| <kbd>XF86MonBrightnessDown</kbd>                                                                             | Decrease brightness by 10%                                          |
-| <kbd>XF86MonBrightnessUp</kbd>                                                                               | Increase brightness by 10%                                          |
-| <kbd>XF86AudioLowerVolume</kbd>                                                                              | Lower volume by 10%                                                 |
-| <kbd>XF86AudioRaiseVolume</kbd>                                                                              | Raise volume by 10%                                                 |
-| <kbd>XF86AudioMute</kbd>                                                                                     | Toggle mute                                                         |
-| <kbd>XF86AudioPlay</kbd>                                                                                     | Play or pause media                                                 |
-| <kbd>XF86AudioNext</kbd>                                                                                     | Next media track                                                    |
-| <kbd>XF86AudioPrev</kbd>                                                                                     | Previous media track                                                |
-| <kbd>Super</kbd> + <kbd>Q</kbd>                                                                              | Close window                                                        |
-| <kbd>Super</kbd> + <kbd>W</kbd>                                                                              | Switch preset column width                                          |
-| <kbd>Super</kbd> + <kbd>H</kbd>                                                                              | Switch preset window height                                         |
-| <kbd>Super</kbd> + <kbd>M</kbd>                                                                              | Toggle maximize mode                                                |
-| <kbd>Super</kbd> + <kbd>F</kbd>                                                                              | Toggle fullscreen mode                                              |
-| <kbd>Super</kbd>+ <kbd>Left</kbd> </br> <kbd>Super</kbd> + <kbd>WheelScrollUp</kbd>                          | Focus column on the left                                            |
-| <kbd>Super</kbd>+ <kbd>Right</kbd> </br> <kbd>Super</kbd> + <kbd>WheelScrollDown</kbd>                       | Focus column on the right                                           |
-| <kbd>Super</kbd>+ <kbd>Down</kbd>                                                                            | Focus window downward                                               |
-| <kbd>Super</kbd>+ <kbd>Up</kbd>                                                                              | Focus window upward                                                 |
-| <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>Left</kbd>                                                         | Move column to the left                                             |
-| <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>Right</kbd>                                                        | Move column to the right                                            |
-| <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>Down</kbd>                                                         | Move window downward                                                |
-| <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>Up</kbd>                                                           | Move window upward                                                  |
-| <kbd>Super</kbd> + <kbd>PageDown</kbd> </br> <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>WheelScrollDown</kbd> | Focus workspace downward                                            |
-| <kbd>Super</kbd> + <kbd>PageUp</kbd> </br> <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>WheelScrollUP</kbd>     | Focus workspace upward                                              |
-| <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>PageDown</kbd>                                                     | Move column downward                                                |
-| <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>PageUp</kbd>                                                       | Move column upward                                                  |
-| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Left</kbd>                                                        | Resize column width by -10%                                         |
-| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Right</kbd>                                                       | Resize column width by +10%                                         |
-| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Down</kbd>                                                        | Resize window height by -10%                                        |
-| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Up</kbd>                                                          | Resize window height by +10%                                        |
-| <kbd>Super</kbd> + <kbd>Home</kbd>                                                                           | Focus the first column                                              |
-| <kbd>Super</kbd> + <kbd>End</kbd>                                                                            | Focus the last column                                               |
-| <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>Home</kbd>                                                         | Move column to the first                                            |
-| <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>End</kbd>                                                          | Move column to the last                                             |
-| <kbd>Super</kbd> + <kbd>BracketLeft</kbd>                                                                    | Consume from/expel to the column on the left                        |
-| <kbd>Super</kbd> + <kbd>BracketRight</kbd>                                                                   | Consume from/expel to the column on the right                       |
-| <kbd>Super</kbd> + <kbd>Comma</kbd>                                                                          | Consume window from the right into the bottom of the focused column |
-| <kbd>Super</kbd> + <kbd>Period</kbd>                                                                         | Expel the bottom window from the focused column to the right        |
-| <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>[0-9]</kbd>                                                        | Move column to workspace [1-10]                                     |
-| <kbd>Print</kbd>                                                                                             | Screenshot (region)                                                 |
-| <kbd>Ctrl</kbd> + <kbd>Print</kbd>                                                                           | Screenshot (window)                                                 |
-| <kbd>Shift</kbd> + <kbd>Print</kbd>                                                                          | Screenshot (monitor)                                                |
+## Applications
 
-</div>
+| Keys                                                  | Action                     |
+| :---------------------------------------------------- | :------------------------- |
+| <kbd>Super</kbd> + <kbd>Enter</kbd>                   | Open terminal              |
+| <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>Enter</kbd> | Open launcher              |
+| <kbd>Super</kbd> + <kbd>B</kbd>                       | Open firefox               |
+| <kbd>Super</kbd> + <kbd>E</kbd>                       | Open nautilus              |
+| <kbd>Super</kbd> + <kbd>N</kbd>                       | Toggle notification center |
+| <kbd>Super</kbd> + <kbd>L</kbd>                       | Launch lock screen         |
+| <kbd>Super</kbd> + <kbd>C</kbd>                       | Launch clipboard menu      |
+| <kbd>Super</kbd> + <kbd>I</kbd>                       | Toggle idle daemon         |
+| <kbd>Super</kbd> + <kbd>P</kbd>                       | Launch power profile menu  |
+| <kbd>Super</kbd> + <kbd>U</kbd>                       | Launch updater             |
+| <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>W</kbd>     | Toggle waybar              |
+| <kbd>Super</kbd> + <kbd>Backspace</kbd>               | Launch logout screen       |
+
+## Backlight and Audio
+
+| Keys                             | Action                     |
+| :------------------------------- | :------------------------- |
+| <kbd>XF86MonBrightnessUp</kbd>   | Increase brightness by 10% |
+| <kbd>XF86MonBrightnessDown</kbd> | Decrease brightness by 10% |
+| <kbd>XF86AudioRaiseVolume</kbd>  | Raise volume by 10%        |
+| <kbd>XF86AudioLowerVolume</kbd>  | Lower volume by 10%        |
+| <kbd>XF86AudioMute</kbd>         | Toggle mute                |
+| <kbd>XF86AudioPlay</kbd>         | Play or pause media        |
+| <kbd>XF86AudioNext</kbd>         | Next media track           |
+| <kbd>XF86AudioPrev</kbd>         | Previous media track       |
+
+## Windows and Columns
+
+| Keys                                                   | Action                                                                   |
+| :----------------------------------------------------- | :----------------------------------------------------------------------- |
+| <kbd>Super</kbd> + <kbd>Q</kbd>                        | Close window                                                             |
+| <kbd>Super</kbd> + <kbd>W</kbd>                        | Switch preset column width                                               |
+| <kbd>Super</kbd> + <kbd>H</kbd>                        | Switch preset window height                                              |
+| <kbd>Super</kbd> + <kbd>M</kbd>                        | Toggle maximize mode                                                     |
+| <kbd>Super</kbd> + <kbd>F</kbd>                        | Toggle fullscreen mode                                                   |
+| <kbd>Super</kbd>+ <kbd>Left</kbd>                      | Focus column on the left                                                 |
+| <kbd>Super</kbd>+ <kbd>Right</kbd>                     | Focus column on the right                                                |
+| <kbd>Super</kbd>+ <kbd>Down</kbd>                      | Focus window downward                                                    |
+| <kbd>Super</kbd>+ <kbd>Up</kbd>                        | Focus window upward                                                      |
+| <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>Left</kbd>   | Move column to the left                                                  |
+| <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>Right</kbd>  | Move column to the right                                                 |
+| <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>Down</kbd>   | Move window downward                                                     |
+| <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>Up</kbd>     | Move window upward                                                       |
+| <kbd>Super</kbd> + <kbd>Home</kbd>                     | Focus the first column                                                   |
+| <kbd>Super</kbd> + <kbd>End</kbd>                      | Focus the last column                                                    |
+| <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>Home</kbd>   | Move column to the first                                                 |
+| <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>End</kbd>    | Move column to the last                                                  |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Left</kbd>  | Resize column width by -10%                                              |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Right</kbd> | Resize column width by +10%                                              |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Down</kbd>  | Resize window height by -10%                                             |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Up</kbd>    | Resize window height by +10%                                             |
+| <kbd>Super</kbd> + <kbd>BracketLeft</kbd>              | Consume from/expel to the column on the left                             |
+| <kbd>Super</kbd> + <kbd>BracketRight</kbd>             | Consume from/expel to the column on the right                            |
+| <kbd>Super</kbd> + <kbd>Comma</kbd>                    | Consume window from the right </br>into the bottom of the focused column |
+| <kbd>Super</kbd> + <kbd>Period</kbd>                   | Expel the bottom window from </br>the focused column to the right        |
+
+## Workspaces
+
+| Keys                                                     | Action                          |
+| :------------------------------------------------------- | :------------------------------ |
+| <kbd>Super</kbd> + <kbd>PageDown</kbd>                   | Focus workspace downward        |
+| <kbd>Super</kbd> + <kbd>PageUp</kbd>                     | Focus workspace upward          |
+| <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>PageDown</kbd> | Move column downward            |
+| <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>PageUp</kbd>   | Move column upward              |
+| <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>[0-9]</kbd>    | Move column to workspace [1-10] |
+
+## Screenshot
+
+| Keys                                | Action               |
+| :---------------------------------- | :------------------- |
+| <kbd>Print</kbd>                    | Screenshot (region)  |
+| <kbd>Ctrl</kbd> + <kbd>Print</kbd>  | Screenshot (window)  |
+| <kbd>Shift</kbd> + <kbd>Print</kbd> | Screenshot (monitor) |
