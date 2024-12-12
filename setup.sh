@@ -125,4 +125,9 @@ sed -i "s|\$NIRICONF|$config_folder|g" $(realpath "$config_folder/scripts/wlogou
 sed -i "s|\$NIRICONF|$config_folder|g" $(realpath "$config_folder/waybar/config")
 sed -i "s|\$NIRICONF|$config_folder|g" $(realpath "$config_folder/waybar/modules.jsonc")
 
-echo "[INFO] niri setup all completed"
+if niri validate >/dev/null; then
+  echo "[INFO] niri setup all completed"
+else
+  echo "[ERROR] Something went wrong. See the following output:"
+  niri validate
+fi
