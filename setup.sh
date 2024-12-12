@@ -1,4 +1,9 @@
 #!/bin/bash
+
+export GUM_CHOOSE_HEADER_FOREGROUND="$#d8dadd"
+export GUM_CHOOSE_SELECTED_FOREGROUND="#758A9B"
+export GUM_CHOOSE_CURSOR_FOREGROUND="#758A9B"
+
 is_installed() {
   pacman -Qi "$1" &>/dev/null
 }
@@ -38,7 +43,7 @@ symlink() {
       break
       ;;
     *)
-      echo "Invalid option: $1" >&2
+      echo "[Error] Invalid option: $1" >&2
       return 1
       ;;
     esac
@@ -85,11 +90,6 @@ if [ ${#available_helpers[@]} -eq 0 ]; then
   echo "[Error] no AUR helper available. please install one of {yay, paru, aura, trizen}."
   exit 1
 fi
-
-export GUM_CHOOSE_HEADER_FOREGROUND="$#d8dadd"
-export GUM_CHOOSE_SELECTED_FOREGROUND="#758A9B"
-export GUM_CHOOSE_CURSOR_FOREGROUND="#758A9B"
-
 aur=$(gum choose "${available_helpers[@]}" --header "Choose an AUR helper:" --select-if-one)
 
 pkgs=(
@@ -111,9 +111,11 @@ pkgs=(
   wlogout
   xwayland-satellite
 )
-
 $aur -Syu --needed $(echo "${pkgs[*]}")
+
+config_folder=$(dirname "$(realpath "$0")")
 symlink $config_folder/niri --to-config
+
 sed -i "s|\$NIRICONF|$config_folder|g" $(realpath "$config_folder/niri/config.kdl")
 sed -i "s|\$NIRICONF|$config_folder|g" $(realpath "$config_folder/scripts/power-profiles.sh")
 sed -i "s|\$NIRICONF|$config_folder|g" $(realpath "$config_folder/scripts/swayidle.sh")
@@ -122,5 +124,5 @@ sed -i "s|\$NIRICONF|$config_folder|g" $(realpath "$config_folder/scripts/toggle
 sed -i "s|\$NIRICONF|$config_folder|g" $(realpath "$config_folder/scripts/wlogout.sh")
 sed -i "s|\$NIRICONF|$config_folder|g" $(realpath "$config_folder/waybar/config")
 sed -i "s|\$NIRICONF|$config_folder|g" $(realpath "$config_folder/waybar/modules.jsonc")
-echo "niri setup all completed"
 
+echo "[INFO] niri setup all completed"
