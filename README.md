@@ -61,10 +61,10 @@ For the dotfiles of `tuigreet` and `zsh`, please refer to [my main configuration
 
 | Keys                             | Action                     |
 | :------------------------------- | :------------------------- |
-| <kbd>XF86MonBrightnessUp</kbd>   | Increase brightness by 10% |
-| <kbd>XF86MonBrightnessDown</kbd> | Decrease brightness by 10% |
-| <kbd>XF86AudioRaiseVolume</kbd>  | Raise volume by 10%        |
-| <kbd>XF86AudioLowerVolume</kbd>  | Lower volume by 10%        |
+| <kbd>XF86MonBrightnessUp</kbd>   | Increase brightness by 5% |
+| <kbd>XF86MonBrightnessDown</kbd> | Decrease brightness by 5% |
+| <kbd>XF86AudioRaiseVolume</kbd>  | Raise volume by 5%        |
+| <kbd>XF86AudioLowerVolume</kbd>  | Lower volume by 5%        |
 | <kbd>XF86AudioMute</kbd>         | Toggle mute                |
 | <kbd>XF86AudioPlay</kbd>         | Play or pause media        |
 | <kbd>XF86AudioNext</kbd>         | Next media track           |
