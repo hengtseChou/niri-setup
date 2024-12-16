@@ -1,6 +1,6 @@
 #!/bin/bash
-clear
-figlet "Updates"
+echo ""
+figlet "Updates" -f slant -w 44 -c
 echo ""
 sleep 0.1
 
