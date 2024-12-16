@@ -111,7 +111,7 @@ hotkey-overlay {
 }
 
 // misc configuration
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+screenshot-path "~/Pictures/Screenshots/Screenshot From %Y-%m-%d %H-%M-%S.png"
 prefer-no-csd
 
 // Animation settings.
