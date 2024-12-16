@@ -25,7 +25,7 @@
 
 ![screenshot2](https://i.imgur.com/hjJAR5Q.png)
 
-![screenshot3](https://i.imgur.com/6DFVFwS.png)
+![screenshot3](https://i.imgur.com/zmzfqdx.png)
 
 ![screenshot4](https://i.imgur.com/h0irTeq.png)
 
@@ -47,6 +47,7 @@ For the dotfiles of the following programs, please refer to [the main configurat
 - `fontconfig`
 - `tuigreet`
 - `spicetify`
+- `starship`
 - `zsh`
 
 # Keybindings
