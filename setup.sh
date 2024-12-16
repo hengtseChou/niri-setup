@@ -1,5 +1,5 @@
 #!/bin/bash
-
+SKIP_INSTALL=false
 export GUM_CHOOSE_HEADER_FOREGROUND="$#d8dadd"
 export GUM_CHOOSE_SELECTED_FOREGROUND="#758A9B"
 export GUM_CHOOSE_CURSOR_FOREGROUND="#758A9B"
@@ -7,11 +7,6 @@ export GUM_CHOOSE_CURSOR_FOREGROUND="#758A9B"
 is_installed() {
   pacman -Qi "$1" &>/dev/null
 }
-
-if ! is_installed gum; then
-  echo "[Error] missing dependency: gum"
-  exit 1
-fi
 
 symlink() {
   source="$1"
@@ -74,44 +69,75 @@ symlink() {
   fi
 }
 
-helper_options=(
-  paru
-  yay
-  aura
-  trizen
-)
-available_helpers=()
-for helper in "${helper_options[@]}"; do
-  if is_installed "$helper"; then
-    available_helpers+=("$helper")
-  fi
-done
-if [ ${#available_helpers[@]} -eq 0 ]; then
-  echo "[Error] no AUR helper available. please install one of {yay, paru, aura, trizen}."
+PARSED=$(getopt -o '' --long skip-install -- "$@")
+if [[ $? -ne 0 ]]; then
   exit 1
 fi
-aur=$(gum choose "${available_helpers[@]}" --header "Choose an AUR helper:" --select-if-one)
+eval set -- "$PARSED"
 
-pkgs=(
-  alacritty
-  blueman
-  brightnessctl
-  cliphist
-  fuzzel
-  niri
-  pamixer
-  polkit-gnome
-  pwvucontrol
-  swaybg
-  swayidle
-  swaylock-effects
-  swaync
-  udiskie
-  waybar
-  wlogout
-  xwayland-satellite
-)
-$aur -Syu --needed $(echo "${pkgs[*]}")
+while true; do
+  case "$1" in
+  --skip-install)
+    SKIP_INSTALL=true
+    shift
+    ;;
+  --)
+    shift
+    break
+    ;;
+  *)
+    echo "[Error] Invalid option: $1" >&2
+    exit 1
+    ;;
+  esac
+done
+
+if [ "$SKIP_INSTALL" = false ]; then
+
+  if ! is_installed gum; then
+    echo "[ERROR] missing dependency: gum"
+    exit 1
+  fi
+
+  helper_options=(
+    paru
+    yay
+    aura
+    trizen
+  )
+  available_helpers=()
+  for helper in "${helper_options[@]}"; do
+    if is_installed "$helper"; then
+      available_helpers+=("$helper")
+    fi
+  done
+  if [ ${#available_helpers[@]} -eq 0 ]; then
+    echo "[ERROR] no AUR helper available. please install one of {yay, paru, aura, trizen}."
+    exit 1
+  fi
+  aur=$(gum choose "${available_helpers[@]}" --header "Choose an AUR helper:" --select-if-one)
+
+  pkgs=(
+    alacritty
+    blueman
+    brightnessctl
+    cliphist
+    fuzzel
+    niri
+    pamixer
+    polkit-gnome
+    pwvucontrol
+    swaybg
+    swayidle
+    swaylock-effects
+    swaync
+    udiskie
+    waybar
+    wlogout
+    xwayland-satellite
+  )
+  $aur -Syu --needed $(echo "${pkgs[*]}")
+fi
 
 config_folder=$(dirname "$(realpath "$0")")
 symlink $config_folder/niri --to-config
