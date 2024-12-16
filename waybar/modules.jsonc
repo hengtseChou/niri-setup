@@ -72,13 +72,6 @@
     "max-length": 50,
     "on-click": "alacritty --class floating -e nmtui connect"
   },
-  "custom/weather": {
-    "format": "{}°",
-    "tooltip": true,
-    "interval": 300,
-    "exec": "wttrbar --hide-conditions --location Hsinchu",
-    "return-type": "json"
-  },
   "cpu": {
     "format": "  {usage}%",
     "interval": 10
