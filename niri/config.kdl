@@ -104,7 +104,7 @@ spawn-at-startup "xwayland-satellite"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-at-startup "sh" "-c" "wl-paste --watch cliphist store"
 spawn-at-startup "sh" "-c" "waybar -c $NIRICONF/waybar/config -s $NIRICONF/waybar/style.css"
-spawn-at-startup "sh" "-c" "$NIRICONF/scripts/swayidle.sh"
+spawn-at-startup "sh" "-c" "pkill swayidle; echo '10 minutes' > /tmp/idle-time; $NIRICONF/scripts/swayidle.sh"
 spawn-at-startup "sh" "-c" "swaybg -i $NIRICONF/wallpapers/default.jpg -m fit -c 000000"
 spawn-at-startup "sh" "-c" "swaync -s $NIRICONF/swaync/style.css -c $NIRICONF/swaync/config.json"
 hotkey-overlay {
