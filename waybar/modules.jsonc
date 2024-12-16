@@ -31,8 +31,7 @@
     "return-type": "json",
     "exec": "$NIRICONF/waybar/modules/count-updates.sh",
     "restart-interval": 60,
-    "on-click": "alacritty -e $NIRICONF/waybar/modules/install-updates.sh",
-    "tooltip": false
+    "on-click": "alacritty -e $NIRICONF/waybar/modules/install-updates.sh"
   },
   "backlight": {
     "device": "intel_backlight",
