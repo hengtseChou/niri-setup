@@ -1,7 +1,11 @@
 #!/bin/bash
 lock="$NIRICONF/scripts/swaylock.sh"
+lock_time=$1
+monitor_off_time=$2
+suspend_time=$3
+
 swayidle -w \
-  timeout 300 $lock \
-  timeout 350 'niri msg action power-off-monitors' \
-  timeout 1800 'systemctl suspend' \
+  timeout $lock_time $lock \
+  timeout $monitor_off_time 'niri msg action power-off-monitors' \
+  timeout $suspend_time 'systemctl suspend' \
   before-sleep $lock

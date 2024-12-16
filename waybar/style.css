@@ -85,10 +85,6 @@ tooltip label {
   font-size: 19px;
 }
 
-#custom-swayidle {
-  margin: 0 16px 0 0;
-}
-
 #battery.good {
   color: #228b22;
 }

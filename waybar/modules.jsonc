@@ -103,7 +103,7 @@
     "escape": true,
     "return-type": "json",
     "exec": "$NIRICONF/waybar/modules/check-swayidle.sh",
-    "on-click": "$NIRICONF/scripts/toggle-swayidle.sh",
+    "on-click": "$NIRICONF/scripts/change-idle-time.sh",
     "restart-interval": 1
   },
   "clock": {

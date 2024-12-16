@@ -145,7 +145,7 @@ binds {
     Mod+N           { spawn "sh" "-c" "swaync-client -t -sw"; }
     Mod+L           { spawn "sh" "-c" "$NIRICONF/scripts/swaylock.sh"; }
     Mod+C           { spawn "sh" "-c" "cliphist list | fuzzel --dmenu  --config $NIRICONF/fuzzel/fuzzel.ini | cliphist decode | wl-copy"; }
-    Mod+I           { spawn "sh" "-c" "$NIRICONF/scripts/toggle-swayidle.sh"; }
+    Mod+I           { spawn "sh" "-c" "$NIRICONF/scripts/change-idle-time.sh"; }
     Mod+P           { spawn "sh" "-c" "$NIRICONF/scripts/power-profiles.sh"; }
     Mod+U           { spawn "sh" "-c" "alacritty -e $NIRICONF/waybar/modules/install-updates.sh"; }
     Mod+Ctrl+W      { spawn "sh" "-c" "$NIRICONF/scripts/toggle-waybar.sh"; }
