@@ -36,7 +36,12 @@ cd Niri
 
 The script will install packages required for this setup and symlink to the corresponding directories. Make sure you have one of the AUR helpers installed.
 
-For the dotfiles of `tuigreet` and `zsh`, please refer to [my main configuration repo](https://github.com/hengtseChou/Conf).
+For the dotfiles of the following programs, please refer to [the main configuration repo](https://github.com/hengtseChou/Conf).
+
+- `fastfetch`
+- `fontconfig`
+- `tuigreet`
+- `zsh`
 
 # Keybindings
 
@@ -51,7 +56,7 @@ For the dotfiles of `tuigreet` and `zsh`, please refer to [my main configuration
 | <kbd>Super</kbd> + <kbd>N</kbd>                       | Toggle notification center |
 | <kbd>Super</kbd> + <kbd>L</kbd>                       | Launch lock screen         |
 | <kbd>Super</kbd> + <kbd>C</kbd>                       | Launch clipboard menu      |
-| <kbd>Super</kbd> + <kbd>I</kbd>                       | Toggle idle daemon         |
+| <kbd>Super</kbd> + <kbd>I</kbd>                       | Launch idle time menu      |
 | <kbd>Super</kbd> + <kbd>P</kbd>                       | Launch power profile menu  |
 | <kbd>Super</kbd> + <kbd>U</kbd>                       | Launch updater             |
 | <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>W</kbd>     | Toggle waybar              |
@@ -59,16 +64,16 @@ For the dotfiles of `tuigreet` and `zsh`, please refer to [my main configuration
 
 ## Backlight and Audio
 
-| Keys                             | Action                     |
-| :------------------------------- | :------------------------- |
+| Keys                             | Action                    |
+| :------------------------------- | :------------------------ |
 | <kbd>XF86MonBrightnessUp</kbd>   | Increase brightness by 5% |
 | <kbd>XF86MonBrightnessDown</kbd> | Decrease brightness by 5% |
 | <kbd>XF86AudioRaiseVolume</kbd>  | Raise volume by 5%        |
 | <kbd>XF86AudioLowerVolume</kbd>  | Lower volume by 5%        |
-| <kbd>XF86AudioMute</kbd>         | Toggle mute                |
-| <kbd>XF86AudioPlay</kbd>         | Play or pause media        |
-| <kbd>XF86AudioNext</kbd>         | Next media track           |
-| <kbd>XF86AudioPrev</kbd>         | Previous media track       |
+| <kbd>XF86AudioMute</kbd>         | Toggle mute               |
+| <kbd>XF86AudioPlay</kbd>         | Play or pause media       |
+| <kbd>XF86AudioNext</kbd>         | Next media track          |
+| <kbd>XF86AudioPrev</kbd>         | Previous media track      |
 
 ## Windows and Columns
 
