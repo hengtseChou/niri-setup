@@ -1,8 +1,5 @@
 #!/bin/bash
-mode="$(cat /tmp/idle-time)"
-if [[ "$#" -eq 1 ]]; then
-  notify-send "/tmp/idle-time not found"
-fi
+mode="$(cat $HOME/.local/state/idle-time)"
 case $mode in
 "5 minutes")
   printf '{"text": " 5m", "alt": "swayidle enabled", "tooltip": "swayidle enabled"}'
@@ -20,6 +17,6 @@ case $mode in
   printf '{"text": " inf", "alt": "swayidle disabled", "tooltip": "swayidle disabled"}'
   ;;
 *)
-  echo "unknown mode"
+  printf '{"text": " err", "alt": "idle-time not found", "tooltip": "idle-time not found"}'
   ;;
 esac
