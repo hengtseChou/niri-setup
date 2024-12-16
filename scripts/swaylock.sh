@@ -1,5 +1,5 @@
 #!/bin/bash
-niri msg action do-screen-transition --delay-ms 200
+niri msg action do-screen-transition --delay-ms 300
 swaylock \
   --clock \
   --screenshots \
