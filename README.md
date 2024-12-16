@@ -21,15 +21,15 @@
 
 # Screenshots
 
-![screenshot1](https://i.imgur.com/jBI7F5n.png)
+![screenshot1](https://raw.githubusercontent.com/hengtseChou/Niri/refs/heads/main/.github/assets/screenshots/screenshot1.png)
 
-![screenshot2](https://i.imgur.com/hjJAR5Q.png)
+![screenshot2](https://raw.githubusercontent.com/hengtseChou/Niri/refs/heads/main/.github/assets/screenshots/screenshot2.png)
 
-![screenshot3](https://i.imgur.com/zmzfqdx.png)
+![screenshot3](https://raw.githubusercontent.com/hengtseChou/Niri/refs/heads/main/.github/assets/screenshots/screenshot3.png)
 
-![screenshot4](https://i.imgur.com/h0irTeq.png)
+![screenshot4](https://raw.githubusercontent.com/hengtseChou/Niri/refs/heads/main/.github/assets/screenshots/screenshot4.png)
 
-![screenshot5](https://i.imgur.com/awsEd1J.png)
+![screenshot5](https://raw.githubusercontent.com/hengtseChou/Niri/refs/heads/main/.github/assets/screenshots/screenshot5.png)
 
 # Installation
 
