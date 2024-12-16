@@ -15,16 +15,20 @@
 - **Terminal •** [Alacritty](https://github.com/alacritty/alacritty)
 - **Terminal Font •** [JetBrains Mono Nerd Font](https://archlinux.org/packages/extra/any/ttf-jetbrains-mono-nerd/)
 - **Shell •** [zsh](https://www.zsh.org/) + [zinit](https://github.com/zdharma-continuum/zinit) + [starship](https://github.com/starship/starship)
+- **Spicetify Theme •** [Ziro (Gray Dark)](https://github.com/spicetify/spicetify-themes/tree/master/Ziro#gray-dark)
+- **Firefox Theme •** [Dark space](https://addons.mozilla.org/en-US/firefox/addon/nicothin-space/)
 
 # Screenshots
 
-![screenshot1](https://i.imgur.com/GFD5VfH.png)
+![screenshot1](https://i.imgur.com/jBI7F5n.png)
 
-![screenshot2](https://i.imgur.com/kVWkPyy.png)
+![screenshot2](https://i.imgur.com/hjJAR5Q.png)
 
-![screenshot3](https://i.imgur.com/dNIMi1d.png)
+![screenshot3](https://i.imgur.com/6DFVFwS.png)
 
-![screenshot4](https://i.imgur.com/9GLaLjH.png)
+![screenshot4](https://i.imgur.com/h0irTeq.png)
+
+![screenshot5](https://i.imgur.com/awsEd1J.png)
 
 # Installation
 
@@ -41,6 +45,7 @@ For the dotfiles of the following programs, please refer to [the main configurat
 - `fastfetch`
 - `fontconfig`
 - `tuigreet`
+- `spicetify`
 - `zsh`
 
 # Keybindings
