@@ -127,6 +127,7 @@ if [ "$SKIP_INSTALL" = false ]; then
     pamixer
     polkit-gnome
     pwvucontrol
+    starship
     swaybg
     swayidle
     swaylock-effects
