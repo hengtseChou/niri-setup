@@ -1,0 +1,135 @@
+# See dunst(5) for all configuration options
+
+[global]
+    ### Display ###
+    monitor = 0
+    follow = none
+
+    ### Geometry ###
+    width = 300
+    # The height of a single notification, excluding the frame.
+    # dynamic height from 0 to 300
+    height = (0, 300)
+    origin = top-right
+    # Offset from the origin
+    offset = (25, 25)
+    scale = 0
+    notification_limit = 5
+    # Draw a line of "separator_height" pixel height between two
+    # notifications.
+    # Set to 0 to disable.
+    # If gap_size is greater than 0, this setting will be ignored.
+    separator_height = 2
+    # Padding between text and separator.
+    padding = 8
+    # Horizontal padding.
+    horizontal_padding = 8
+    # Padding between text and icon.
+    text_icon_padding = 0
+    frame_width = 2
+    corner_radius = 12
+    corners = all
+    gap_size = 0
+    separator_color = frame
+    sort = yes
+
+    ### Progress bar ###
+    progress_bar = true
+    progress_bar_height = 10
+    progress_bar_frame_width = 1
+    progress_bar_min_width = 150
+    progress_bar_max_width = 300
+    progress_bar_corner_radius = 0
+    progress_bar_corners = all
+    icon_corner_radius = 0
+    icon_corners = all
+    indicate_hidden = yes
+
+    ### Text ###
+    font = Monospace 10
+    line_height = 0
+    markup = full
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    vertical_alignment = center
+    # Show age of message if message is older than show_age_threshold seconds.
+    # Set to -1 to disable.
+    show_age_threshold = 60
+    ellipsize = middle
+    ignore_newline = no
+    # Stack together notifications with the same content
+    stack_duplicates = false
+    # Hide the count of stacked notifications with the same content
+    hide_duplicate_count = false
+    # Display indicators for URLs (U) and actions (A).
+    show_indicators = yes
+
+    ### Icons ###
+    enable_recursive_icon_lookup = true
+    # Set icon theme (only used for recursive icon lookup)
+    icon_theme = Colloid
+    # Align icons left/right/top/off
+    icon_position = left
+    # Scale small icons up to this size, set to 0 to disable. Helpful
+    # for e.g. small files or high-dpi screens. In case of conflict,
+    # max_icon_size takes precedence over this.
+    min_icon_size = 64
+    # Scale larger icons down to this size, set to 0 to disable
+    max_icon_size = 64
+
+    ### History ###
+    sticky_history = yes
+    history_length = 20
+
+    ### Misc/Advanced ###
+    dmenu = /usr/bin/dmenu -p dunst:
+    browser = /usr/bin/xdg-open
+    always_run_script = true
+    # Define the title of the windows spawned by dunst (X11 only)
+    title = Dunst
+    # Define the class of the windows spawned by dunst (X11 only)
+    class = Dunst
+    ignore_dbusclose = false
+
+    ### Wayland ###
+    force_xwayland = false
+
+    ### Legacy
+    force_xinerama = false
+
+    ### mouse
+    mouse_left_click = close_current
+    mouse_middle_click = do_action, close_current
+    mouse_right_click = close_all
+
+[experimental]
+    per_monitor_dpi = false
+
+
+[urgency_low]
+    # IMPORTANT: colors have to be defined in quotation marks.
+    # Otherwise the "#" and following would be interpreted as a comment.
+    background = "#0b0b0ccc"
+    foreground = "#d8dadd"
+    frame_color = "#61768fcc"
+    timeout = 10
+    # Icon for notifications with low urgency
+    default_icon = dialog-information
+
+[urgency_normal]
+    background = "#0b0b0ccc"
+    foreground = "#d8dadd"
+    frame_color = "#b7d4edcc"
+    timeout = 10
+    override_pause_level = 30
+    # Icon for notifications with normal urgency
+    default_icon = dialog-information
+
+[urgency_critical]
+    background = "#0b0b0ccc"
+    foreground = "#d8dadd"
+    frame_color = "#ff5555cc"
+    timeout = 0
+    override_pause_level = 60
+    # Icon for notifications with critical urgency
+    default_icon = gnome-warning

@@ -3,7 +3,7 @@
 - **Launcher •** [Fuzzel](https://codeberg.org/dnkl/fuzzel)
 - **Panel •** [Waybar](https://github.com/Alexays/Waybar)
 - **Panel Font •** [Ubuntu Mono Nerd Font](https://archlinux.org/packages/extra/any/ttf-ubuntu-mono-nerd/) + [Noto Sans Mono CJK TC](https://archlinux.org/packages/extra/any/noto-fonts-cjk/)
-- **Notification •** [SwayNC](https://github.com/ErikReider/SwayNotificationCenter)
+- **Notification •** [dunst](https://github.com/dunst-project/dunst)
 - **Clipboard Manager •** [cliphist](https://github.com/sentriz/cliphist)
 - **Wallpaper Engine •** [swaybg](https://github.com/swaywm/swaybg)
 - **Idle Daemon •** [swayidle](https://github.com/swaywm/swayidle)

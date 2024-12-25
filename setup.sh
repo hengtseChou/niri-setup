@@ -122,6 +122,7 @@ if [ "$SKIP_INSTALL" = false ]; then
     blueman
     brightnessctl
     cliphist
+    dunst
     fuzzel
     niri
     pamixer
@@ -131,7 +132,6 @@ if [ "$SKIP_INSTALL" = false ]; then
     swaybg
     swayidle
     swaylock-effects
-    swaync
     udiskie
     waybar
     wlogout

@@ -105,7 +105,7 @@ spawn-at-startup "sh" "-c" "wl-paste --watch cliphist store"
 spawn-at-startup "sh" "-c" "waybar -c $NIRICONF/waybar/config -s $NIRICONF/waybar/style.css"
 spawn-at-startup "sh" "-c" "pkill swayidle; echo '10 minutes' > /tmp/idle-time; $NIRICONF/scripts/swayidle.sh"
 spawn-at-startup "sh" "-c" "swaybg -i $NIRICONF/wallpapers/default.jpg -m fit -c 000000"
-spawn-at-startup "sh" "-c" "swaync -s $NIRICONF/swaync/style.css -c $NIRICONF/swaync/config.json"
+spawn-at-startup "sh" "-c" "dunst -conf $NIRICONF/dunst/dunstrc"
 hotkey-overlay {
     skip-at-startup
 }
@@ -141,7 +141,6 @@ binds {
     Mod+Ctrl+Return { spawn "sh" "-c" "fuzzel --config $NIRICONF/fuzzel/fuzzel.ini"; }
     Mod+B           { spawn "firefox"; }
     Mod+E           { spawn "nautilus"; }
-    Mod+N           { spawn "sh" "-c" "swaync-client -t -sw"; }
     Mod+L           { spawn "sh" "-c" "$NIRICONF/scripts/swaylock.sh"; }
     Mod+C           { spawn "sh" "-c" "cliphist list | fuzzel --dmenu  --config $NIRICONF/fuzzel/clipboard.ini | cliphist decode | wl-copy"; }
     Mod+I           { spawn "sh" "-c" "$NIRICONF/scripts/change-idle-time.sh"; }
