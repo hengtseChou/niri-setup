@@ -70,7 +70,7 @@
     "tooltip-format-ethernet": "󰈀  {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
     "tooltip-format-disconnected": "Disconnected",
     "max-length": 50,
-    "on-click": "alacritty --class floating -e nmtui connect"
+    "on-click": "alacritty --title nmtui --config-file $NIRICONF/alacritty/alacritty.toml -e nmtui connect"
   },
   "cpu": {
     "format": "  {usage}%",
