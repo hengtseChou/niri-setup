@@ -89,6 +89,7 @@ For the dotfiles of the following programs, please refer to [the main configurat
 | <kbd>Super</kbd> + <kbd>Q</kbd>                        | Close window                                                             |
 | <kbd>Super</kbd> + <kbd>W</kbd>                        | Switch preset column width                                               |
 | <kbd>Super</kbd> + <kbd>H</kbd>                        | Switch preset window height                                              |
+| <kbd>Super</kbd> + <kbd>T</kbd>                        | Toggle window floating                                                   |
 | <kbd>Super</kbd> + <kbd>M</kbd>                        | Toggle maximize mode                                                     |
 | <kbd>Super</kbd> + <kbd>F</kbd>                        | Toggle fullscreen mode                                                   |
 | <kbd>Super</kbd>+ <kbd>Left</kbd>                      | Focus column on the left                                                 |
