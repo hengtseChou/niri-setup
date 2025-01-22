@@ -101,11 +101,11 @@ spawn-at-startup "fcitx5" "-d" "--replace"
 spawn-at-startup "udiskie"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-spawn-at-startup "sh" "-c" "wl-paste --watch cliphist store"
-spawn-at-startup "sh" "-c" "waybar -c $NIRICONF/waybar/config -s $NIRICONF/waybar/style.css"
+spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
+spawn-at-startup "waybar" "-c" "$NIRICONF/waybar/config" "-s" "$NIRICONF/waybar/style.css"
+spawn-at-startup "swaybg" "-i" "$NIRICONF/wallpapers/default.jpg" "-m" "fit" "-c" "000000"
+spawn-at-startup "dunst" "-conf" "$NIRICONF/dunst/dunstrc"
 spawn-at-startup "sh" "-c" "pkill swayidle; echo '10 minutes' > /tmp/idle-time; $NIRICONF/scripts/swayidle.sh"
-spawn-at-startup "sh" "-c" "swaybg -i $NIRICONF/wallpapers/default.jpg -m fit -c 000000"
-spawn-at-startup "sh" "-c" "dunst -conf $NIRICONF/dunst/dunstrc"
 hotkey-overlay {
     skip-at-startup
 }
@@ -129,25 +129,34 @@ window-rule {
 window-rule {
     match title="Firefox"
     match title="Visual Studio Code"
-    match title="Zotero"
-    match title="RStudio"
     default-column-width { proportion 1.0; }
+}
+window-rule {
+    match app-id="chrome-ophjlpahpchlmihnnnihgmmeilfjmjjc__index.html-Default"
+    open-floating true
+}
+window-rule {
+    match app-id="org.gnome.Calculator"
+    match app-id="com.saivert.pwvucontrol"
+    match app-id="Alacritty" title="Updater"
+    open-floating true
+    default-floating-position x=32 y=32 relative-to="top-right"
 }
 
 binds {
     // Mod+Shift+Slash { show-hotkey-overlay; }
     // Applications
-    Mod+Return      { spawn "sh" "-c" "alacritty --config-file $NIRICONF/alacritty/alacritty.toml"; }
-    Mod+Ctrl+Return { spawn "sh" "-c" "fuzzel --config $NIRICONF/fuzzel/fuzzel.ini"; }
+    Mod+Return      { spawn "alacritty" "--config-file" "$NIRICONF/alacritty/alacritty.toml"; }
+    Mod+Ctrl+Return { spawn "fuzzel" "--config" "$NIRICONF/fuzzel/fuzzel.ini"; }
     Mod+B           { spawn "firefox"; }
     Mod+E           { spawn "nautilus"; }
-    Mod+L           { spawn "sh" "-c" "$NIRICONF/scripts/swaylock.sh"; }
-    Mod+C           { spawn "sh" "-c" "cliphist list | fuzzel --dmenu  --config $NIRICONF/fuzzel/clipboard.ini | cliphist decode | wl-copy"; }
-    Mod+I           { spawn "sh" "-c" "$NIRICONF/scripts/change-idle-time.sh"; }
-    Mod+P           { spawn "sh" "-c" "$NIRICONF/scripts/change-power-profile.sh"; }
-    Mod+U           { spawn "sh" "-c" "alacritty --config-file $NIRICONF/alacritty/alacritty.toml -e $NIRICONF/waybar/modules/install-updates.sh"; }
-    Mod+Ctrl+W      { spawn "sh" "-c" "$NIRICONF/scripts/toggle-waybar.sh"; }
-    Mod+Backspace   { spawn "sh" "-c" "$NIRICONF/scripts/wlogout.sh"; }
+    Mod+L           { spawn "$NIRICONF/scripts/swaylock.sh"; }
+    Mod+C           { spawn "sh" "-c" "cliphist list | fuzzel --dmenu --config $NIRICONF/fuzzel/clipboard.ini | cliphist decode | wl-copy"; }
+    Mod+I           { spawn "$NIRICONF/scripts/change-idle-time.sh"; }
+    Mod+P           { spawn "$NIRICONF/scripts/change-power-profile.sh"; }
+    Mod+U           { spawn "alacritty" "--title" "Updater" "--config-file" "$NIRICONF/alacritty/alacritty.toml" "-e" "$NIRICONF/waybar/modules/install-updates.sh"; }
+    Mod+Ctrl+W      { spawn "$NIRICONF/scripts/toggle-waybar.sh"; }
+    Mod+Backspace   { spawn "$NIRICONF/scripts/wlogout.sh"; }
 
     // Backlight and Audio
     XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "set" "+5%" ; }
@@ -164,6 +173,7 @@ binds {
     Mod+Q            { close-window; }
     Mod+W            { switch-preset-column-width; }
     Mod+H            { switch-preset-window-height; }
+    Mod+T            { toggle-window-floating; }
     Mod+M            { maximize-column; }
     Mod+F            { fullscreen-window; }
     Mod+Left         { focus-column-left; }
