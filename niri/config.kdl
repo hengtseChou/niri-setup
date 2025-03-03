@@ -36,10 +36,10 @@ output "HDMI-A-1" {
     // left
     // position x=-1920 y=0
     // right
-    // position x=1920 y=0
+    position x=1920 y=0
     // top
     // the value would be based on the connected monitor
-    position x=0 y=-1080
+    // position x=0 y=-1080
 }
 output "DP-1" {
     transform "normal"
@@ -72,6 +72,7 @@ layout {
         proportion 0.33333
         proportion 0.5
         proportion 0.66667
+        proportion 1.0
     }
     preset-window-heights {
         proportion 0.33333
@@ -138,6 +139,9 @@ window-rule {
     match app-id="Alacritty" title="nmtui"
     match app-id="chrome-ophjlpahpchlmihnnnihgmmeilfjmjjc__index.html-Default"
     open-floating true
+    shadow {
+        on
+    }
 }
 
 binds {
@@ -154,6 +158,7 @@ binds {
     Mod+U           { spawn "alacritty" "--title" "Updater" "--config-file" "$NIRICONF/alacritty/alacritty.toml" "-e" "$NIRICONF/waybar/modules/install-updates.sh"; }
     Mod+Ctrl+W      { spawn "$NIRICONF/scripts/toggle-waybar.sh"; }
     Mod+Backspace   { spawn "$NIRICONF/scripts/wlogout.sh"; }
+    Mod+U           { spawn "alacritty" "--title" "Updater" "--config-file" "$NIRICONF/alacritty/float.toml" "-e" "$NIRICONF/waybar/modules/install-updates.sh"; }
 
     // Backlight and Audio
     XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "set" "+5%" ; }
