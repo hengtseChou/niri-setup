@@ -128,8 +128,9 @@ window-rule {
     clip-to-geometry true
 }
 window-rule {
-    match title="Firefox"
-    match title="Visual Studio Code"
+    match app-id="firefox"
+    match app-id="code"
+    match app-id="dev.zed.Zed"
     default-column-width { proportion 1.0; }
 }
 window-rule {
