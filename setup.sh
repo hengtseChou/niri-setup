@@ -66,7 +66,8 @@ if [ -d "$HOME/.config/niri" ]; then
   if [[ $overwrite =~ ^[Yy]$ ]]; then
     ln -sf $config_folder/niri $HOME/.config
   else
-    exit 0
+    echo "[INFO] aborting"
+    exit 1
   fi
 fi
 
