@@ -61,8 +61,7 @@ fi
 
 config_folder=$(dirname "$(realpath "$0")")
 if [ -d "$HOME/.config/niri" ]; then
-  printf "[WARN] niri config file exists. do you want to overwrite it? (Y/n): "
-  read -r overwrite
+  read -p "[WARN] niri config file exists. do you want to overwrite it? (Y/n): " overwrite
   overwrite=${overwrite:-Y}
   if [[ $overwrite =~ ^[Yy]$ ]]; then
     ln -sf $config_folder/niri $HOME/.config
