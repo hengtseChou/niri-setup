@@ -1,4 +1,4 @@
-- **Window Manager •** [Niri](https://github.com/YaLTeR/niri)
+- **Window Manager •** [niri](https://github.com/YaLTeR/niri)
 - **Display Manager •** [tuigreet](https://github.com/apognu/tuigreet)
 - **Launcher •** [Fuzzel](https://codeberg.org/dnkl/fuzzel)
 - **Panel •** [Waybar](https://github.com/Alexays/Waybar)
