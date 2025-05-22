@@ -54,20 +54,20 @@ For the dotfiles of the following programs, please refer to [the main configurat
 
 ## Applications
 
-| Keys                                                  | Action                     |
-| :---------------------------------------------------- | :------------------------- |
-| <kbd>Super</kbd> + <kbd>Enter</kbd>                   | Open terminal              |
-| <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>Enter</kbd> | Open launcher              |
-| <kbd>Super</kbd> + <kbd>B</kbd>                       | Open firefox               |
-| <kbd>Super</kbd> + <kbd>E</kbd>                       | Open nautilus              |
-| <kbd>Super</kbd> + <kbd>N</kbd>                       | Toggle notification center |
-| <kbd>Super</kbd> + <kbd>L</kbd>                       | Launch lock screen         |
-| <kbd>Super</kbd> + <kbd>C</kbd>                       | Launch clipboard menu      |
-| <kbd>Super</kbd> + <kbd>I</kbd>                       | Launch idle time menu      |
-| <kbd>Super</kbd> + <kbd>P</kbd>                       | Launch power profile menu  |
-| <kbd>Super</kbd> + <kbd>U</kbd>                       | Launch updater             |
-| <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>W</kbd>     | Toggle waybar              |
-| <kbd>Super</kbd> + <kbd>Backspace</kbd>               | Launch logout screen       |
+| Keys                                                  | Action                    |
+| :---------------------------------------------------- | :------------------------ |
+| <kbd>Super</kbd> + <kbd>Enter</kbd>                   | Open terminal             |
+| <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>Enter</kbd> | Open launcher             |
+| <kbd>Super</kbd> + <kbd>B</kbd>                       | Open firefox              |
+| <kbd>Super</kbd> + <kbd>E</kbd>                       | Open nautilus             |
+| <kbd>Super</kbd> + <kbd>L</kbd>                       | Launch lock screen        |
+| <kbd>Super</kbd> + <kbd>C</kbd>                       | Launch clipboard menu     |
+| <kbd>Super</kbd> + <kbd>I</kbd>                       | Launch idle time menu     |
+| <kbd>Super</kbd> + <kbd>P</kbd>                       | Launch power profile menu |
+| <kbd>Super</kbd> + <kbd>U</kbd>                       | Launch updater            |
+| <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>W</kbd>     | Toggle waybar             |
+| <kbd>Super</kbd> + <kbd>Backspace</kbd>               | Launch logout screen      |
+| <kbd>Super</kbd> + <kbd>A</kbd>                       | Toggle overview           |
 
 ## Backlight and Audio
 

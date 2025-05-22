@@ -4,8 +4,8 @@
     "format": "{icon}",
     "format-icons": {
       "active": " ",
-      "default": " "
-    }
+      "default": " ",
+    },
   },
   "custom/media": {
     "format": "{}",
@@ -18,12 +18,12 @@
     "on-click-right": "playerctl stop",
     "on-scroll-up": "playerctl previous",
     "on-scroll-down": "playerctl next",
-    "exec": "$NIRICONF/waybar/modules/media-player.py 2> /dev/null"
+    "exec": "$NIRICONF/waybar/modules/media-player.py 2> /dev/null",
   },
   "niri/window": {
     "icon": true,
     "icon-size": 18,
-    "max-length": 70
+    "max-length": 70,
   },
   "custom/updates": {
     "format": "  {}",
@@ -31,11 +31,11 @@
     "return-type": "json",
     "exec": "$NIRICONF/waybar/modules/count-updates.sh",
     "restart-interval": 60,
-    "on-click": "alacritty --title Updater --config-file $NIRICONF/alacritty/float.toml -e $NIRICONF/waybar/modules/install-updates.sh"
+    "on-click": "alacritty --title Updater --config-file $NIRICONF/alacritty/float.toml -e $NIRICONF/waybar/modules/install-updates.sh",
   },
   "backlight": {
     "device": "intel_backlight",
-    "format": "󰃟  {percent}%"
+    "format": "󰃟  {percent}%",
   },
   "pulseaudio": {
     "format": "{icon}",
@@ -45,21 +45,21 @@
     "on-click": "pwvucontrol",
     "format-icons": {
       "headphone": " ",
-      "default": [" ", " "]
+      "default": [" ", " "],
     },
-    "reverse-scrolling": true
+    "reverse-scrolling": true,
   },
   "battery": {
     "states": {
       "good": 100,
       "warning": 30,
-      "critical": 15
+      "critical": 15,
     },
     "interval": 10,
     "format": "{icon} {capacity}%",
     "format-charging": "󰂄 {capacity}%",
     "format-plugged": "󰂄 {capacity}%",
-    "format-icons": ["󰁻", "󰁽", "󰁿", "󰂁", "󰁹"]
+    "format-icons": ["󰁻", "󰁽", "󰁿", "󰂁", "󰁹"],
   },
   "network": {
     "format": "{ifname}",
@@ -70,15 +70,15 @@
     "tooltip-format-ethernet": "󰈀  {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
     "tooltip-format-disconnected": "Disconnected",
     "max-length": 50,
-    "on-click": "alacritty --title nmtui --config-file $NIRICONF/alacritty/float.toml -e nmtui connect"
+    "on-click": "alacritty --title nmtui --config-file $NIRICONF/alacritty/float.toml -e nmtui connect",
   },
   "cpu": {
     "format": "  {usage}%",
-    "interval": 10
+    "interval": 10,
   },
   "memory": {
     "format": "  {}%",
-    "interval": 10
+    "interval": 10,
   },
   "power-profiles-daemon": {
     "format": "{icon}",
@@ -87,8 +87,8 @@
     "format-icons": {
       "performance": "󰓅",
       "balanced": "󰾅",
-      "power-saver": "󰾆"
-    }
+      "power-saver": "󰾆",
+    },
   },
   "custom/swayidle": {
     "format": "{}",
@@ -96,10 +96,10 @@
     "return-type": "json",
     "exec": "$NIRICONF/waybar/modules/check-swayidle.sh",
     "on-click": "$NIRICONF/scripts/change-idle-time.sh",
-    "restart-interval": 1
+    "restart-interval": 1,
   },
   "clock": {
     "format": "{:%b %d %H:%M}",
-    "tooltip-format": "<tt>{calendar}</tt>"
-  }
+    "tooltip-format": "<tt>{calendar}</tt>",
+  },
 }

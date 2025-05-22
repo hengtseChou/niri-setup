@@ -132,10 +132,10 @@ if [ "$SKIP_INSTALL" = false ]; then
     swaybg
     swayidle
     swaylock-effects
+    swww
     udiskie
     waybar
     wlogout
-    xwayland-satellite
   )
   $aur -Syu --needed $(echo "${pkgs[*]}")
 fi
@@ -146,6 +146,7 @@ symlink $config_folder/niri --to-config
 sed -i "s|\$NIRICONF|$config_folder|g" $(realpath "$config_folder/niri/config.kdl")
 sed -i "s|\$NIRICONF|$config_folder|g" $(realpath "$config_folder/scripts/change-idle-time.sh")
 sed -i "s|\$NIRICONF|$config_folder|g" $(realpath "$config_folder/scripts/change-power-profile.sh")
+sed -i "s|\$NIRICONF|$config_folder|g" $(realpath "$config_folder/scripts/change-wallpaper.sh")
 sed -i "s|\$NIRICONF|$config_folder|g" $(realpath "$config_folder/scripts/swayidle.sh")
 sed -i "s|\$NIRICONF|$config_folder|g" $(realpath "$config_folder/scripts/toggle-waybar.sh")
 sed -i "s|\$NIRICONF|$config_folder|g" $(realpath "$config_folder/scripts/wlogout.sh")

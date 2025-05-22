@@ -36,10 +36,10 @@ output "HDMI-A-1" {
     // left
     // position x=-1920 y=0
     // right
-    position x=1920 y=0
+    // position x=1920 y=0
     // top
     // the value would be based on the connected monitor
-    // position x=0 y=-1080
+    position x=0 y=-1080
 }
 output "DP-1" {
     transform "normal"
@@ -59,7 +59,7 @@ output "DP-2" {
     position x=1920 y=0
     // top
     // the value would be based on the connected monitor
-    // position x=0 y=-1080    
+    // position x=0 y=-1080
 }
 
 // Settings that influence how windows are positioned and sized.
@@ -95,16 +95,16 @@ layout {
         top 0
         bottom 0
     }
+    background-color "transparent"
+
 }
 
 // startup processes
 spawn-at-startup "fcitx5" "-d" "--replace"
 spawn-at-startup "udiskie"
-spawn-at-startup "xwayland-satellite"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 spawn-at-startup "waybar" "-c" "$NIRICONF/waybar/config" "-s" "$NIRICONF/waybar/style.css"
-spawn-at-startup "swaybg" "-i" "$NIRICONF/wallpapers/default.jpg" "-m" "fit" "-c" "000000"
 spawn-at-startup "dunst" "-conf" "$NIRICONF/dunst/dunstrc"
 spawn-at-startup "sh" "-c" "pkill swayidle; echo '10 minutes' > /tmp/idle-time; $NIRICONF/scripts/swayidle.sh"
 hotkey-overlay {
@@ -145,10 +145,19 @@ window-rule {
     }
 }
 
+// workspace background and backdrop
+spawn-at-startup "swww" "img" "$NIRICONF/images/backdrop.jpg"
+spawn-at-startup "swww" "img" "$NIRICONF/images/backdrop.jpg"
+spawn-at-startup
+layer-rule {
+    match namespace="^swww-daemon$"
+    place-within-backdrop true
+}
+
 binds {
     // Mod+Shift+Slash { show-hotkey-overlay; }
     // Applications
-    Mod+Return      { spawn "alacritty" "--config-file" "$NIRICONF/alacritty/alacritty.toml"; }
+    Mod+Return      { spawn "alacritty" "--config-file" "$NIRICONF/alacritty/default.toml"; }
     Mod+Ctrl+Return { spawn "fuzzel" "--config" "$NIRICONF/fuzzel/fuzzel.ini"; }
     Mod+B           { spawn "firefox"; }
     Mod+E           { spawn "nautilus"; }
@@ -156,10 +165,10 @@ binds {
     Mod+C           { spawn "sh" "-c" "cliphist list | fuzzel --dmenu --config $NIRICONF/fuzzel/clipboard.ini | cliphist decode | wl-copy"; }
     Mod+I           { spawn "$NIRICONF/scripts/change-idle-time.sh"; }
     Mod+P           { spawn "$NIRICONF/scripts/change-power-profile.sh"; }
-    Mod+U           { spawn "alacritty" "--title" "Updater" "--config-file" "$NIRICONF/alacritty/alacritty.toml" "-e" "$NIRICONF/waybar/modules/install-updates.sh"; }
+    Mod+U           { spawn "alacritty" "--title" "Updater" "--config-file" "$NIRICONF/alacritty/float.toml" "-e" "$NIRICONF/waybar/modules/install-updates.sh"; }
     Mod+Ctrl+W      { spawn "$NIRICONF/scripts/toggle-waybar.sh"; }
     Mod+Backspace   { spawn "$NIRICONF/scripts/wlogout.sh"; }
-    Mod+U           { spawn "alacritty" "--title" "Updater" "--config-file" "$NIRICONF/alacritty/float.toml" "-e" "$NIRICONF/waybar/modules/install-updates.sh"; }
+    Mod+A           { toggle-overview; }
 
     // Backlight and Audio
     XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "set" "+5%" ; }
