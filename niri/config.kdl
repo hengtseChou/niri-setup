@@ -147,8 +147,8 @@ window-rule {
 }
 
 // workspace background and backdrop
-spawn-at-startup "swww" "img" "$NIRICONF/wallpapers/backdrop.jpg"
-spawn-at-startup "swaybg" "-i" "$NIRICONF/wallpapers/workspace.jpg" "-m" "fit" "-c" "#000000"
+spawn-at-startup "swww" "img" "$NIRICONF/wallpapers/backdrop./home/hank/Pictures/Wallpapers/"
+spawn-at-startup "swaybg" "-i" "$NIRICONF/wallpapers/workspace./home/hank/Pictures/Wallpapers/" "-m" "" "-c" ""
 spawn-at-startup
 layer-rule {
     match namespace="^swww-daemon$"
