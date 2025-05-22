@@ -31,6 +31,14 @@
 
 ![screenshot5](https://raw.githubusercontent.com/hengtseChou/Niri/refs/heads/main/.github/assets/screenshots/screenshot5.png)
 
+# Features
+
+- Empower niri with waybar, fuzzel, dunst, swaylock, and more - A full experience!
+- Idle time and power profile picker available as waybar widgets and fuzzel menus
+- Streamlined wallpaper switching script and updater window
+- A curated color palette smoothly applied across the setup
+- A clean and minimalistic UI you cannot resist to daily drive
+
 # Installation
 
 ```
@@ -40,6 +48,8 @@ cd Niri
 ```
 
 The script will install packages required for this setup and symlink to the corresponding directories. Make sure you have one of the AUR helpers installed.
+
+**Note that the install script will only work on Arch Linux and its derivatives.**
 
 For the dotfiles of the following programs, please refer to [the main configuration repo](https://github.com/hengtseChou/Conf).
 
@@ -65,7 +75,8 @@ For the dotfiles of the following programs, please refer to [the main configurat
 | <kbd>Super</kbd> + <kbd>I</kbd>                       | Launch idle time menu     |
 | <kbd>Super</kbd> + <kbd>P</kbd>                       | Launch power profile menu |
 | <kbd>Super</kbd> + <kbd>U</kbd>                       | Launch updater            |
-| <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>W</kbd>     | Toggle waybar             |
+| <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>B</kbd>     | Toggle waybar             |
+| <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>W</kbd>     | Launch wallpaper selector |
 | <kbd>Super</kbd> + <kbd>Backspace</kbd>               | Launch logout screen      |
 | <kbd>Super</kbd> + <kbd>A</kbd>                       | Toggle overview           |
 
