@@ -138,6 +138,7 @@ window-rule {
     match app-id="com.saivert.pwvucontrol"
     match app-id="Alacritty" title="Updater"
     match app-id="Alacritty" title="nmtui"
+    match app-id="Alacritty" title="Wallpaper Selector"
     match app-id="chrome-ophjlpahpchlmihnnnihgmmeilfjmjjc__index.html-Default"
     open-floating true
     shadow {
@@ -146,8 +147,8 @@ window-rule {
 }
 
 // workspace background and backdrop
-spawn-at-startup "swww" "img" "$NIRICONF/images/backdrop.jpg"
-spawn-at-startup "swww" "img" "$NIRICONF/images/backdrop.jpg"
+spawn-at-startup "swww" "img" "$NIRICONF/wallpapers/backdrop.jpg"
+spawn-at-startup "swaybg" "-i" "$NIRICONF/wallpapers/workspace.jpg" "-m" "fit" "-c" "#000000"
 spawn-at-startup
 layer-rule {
     match namespace="^swww-daemon$"
@@ -166,7 +167,8 @@ binds {
     Mod+I           { spawn "$NIRICONF/scripts/change-idle-time.sh"; }
     Mod+P           { spawn "$NIRICONF/scripts/change-power-profile.sh"; }
     Mod+U           { spawn "alacritty" "--title" "Updater" "--config-file" "$NIRICONF/alacritty/float.toml" "-e" "$NIRICONF/waybar/modules/install-updates.sh"; }
-    Mod+Ctrl+W      { spawn "$NIRICONF/scripts/toggle-waybar.sh"; }
+    Mod+Ctrl+B      { spawn "$NIRICONF/scripts/toggle-waybar.sh"; }
+    Mod+Ctrl+W      { spawn "alacritty" "--title" "Wallpaper Selector" "--config-file" "$NIRICONF/alacritty/float.toml" "-e" "$NIRICONF/scripts/change-wallpaper.sh"; }
     Mod+Backspace   { spawn "$NIRICONF/scripts/wlogout.sh"; }
     Mod+A           { toggle-overview; }
 
