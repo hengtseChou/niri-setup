@@ -13,7 +13,13 @@ if [ -z "$images" ]; then
   exit 1
 fi
 image="$wallpaper_dir/$(echo "$images" | gum choose --header 'Choose your wallpaper: ')"
+if [ $? -eq 1 ]; then
+  exit 1
+fi
 mode=$(echo -e "stretch\nfill\nfit\ncenter\ntile" | gum choose --header "Choose wallpaper mode: ")
+if [ $? -eq 1 ]; then
+  exit 1
+fi
 
 echo "[INFO] Copying selected wallpaper to $NIRICONF..."
 cp $image "$NIRICONF/wallpapers/workspace.${image##*.}"
