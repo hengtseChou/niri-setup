@@ -1,6 +1,6 @@
 # Frosted Midnight
 
-This is a color palette that I discovered with pywal, andd I just want to apply the to all my setups.
+This is a color palette that I discovered with pywal, and I just want to apply the to all my setups.
 
 <div align="center">
 
