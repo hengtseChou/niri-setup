@@ -37,7 +37,7 @@
 
 - Empower niri with waybar, fuzzel, dunst, swaylock, and more - A full experience!
 - Idle time and power profile picker available as waybar widgets and fuzzel menus
-- Streamlined wallpaper switching script and updater window
+- A wallpaper switching script that creates blurred overview backdrop at the same time
 - A curated color palette smoothly applied across the setup
 - A clean and minimalistic UI you cannot resist to daily drive
 
