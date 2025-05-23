@@ -44,8 +44,8 @@
 # Installation
 
 ```
-git clone https://github.com/hengtseChou/Niri.git
-cd Niri
+git clone https://github.com/hengtseChou/niri.git
+cd niri
 ./setup.sh
 ```
 
