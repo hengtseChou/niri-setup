@@ -100,7 +100,6 @@ layout {
 }
 
 // startup processes
-spawn-at-startup "fcitx5" "-d" "--replace"
 spawn-at-startup "udiskie"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
@@ -171,7 +170,6 @@ binds {
     Mod+Ctrl+B      { spawn "$NIRICONF/scripts/toggle-waybar.sh"; }
     Mod+Ctrl+W      { spawn "alacritty" "--title" "Wallpaper Selector" "--config-file" "$NIRICONF/alacritty/float.toml" "-e" "$NIRICONF/scripts/change-wallpaper.sh"; }
     Mod+Backspace   { spawn "$NIRICONF/scripts/wlogout.sh"; }
-    Mod+A           { toggle-overview; }
 
     // Backlight and Audio
     XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "set" "+5%" ; }
@@ -227,6 +225,7 @@ binds {
     Mod+Ctrl+8         { move-column-to-workspace 8; }
     Mod+Ctrl+9         { move-column-to-workspace 9; }
     Mod+Ctrl+0         { move-column-to-workspace 10; }
+    Mod+A              { toggle-overview; }
 
     // Screenshots
     Print       { screenshot; }

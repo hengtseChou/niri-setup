@@ -31,6 +31,8 @@
 
 ![screenshot5](https://raw.githubusercontent.com/hengtseChou/Niri/refs/heads/main/.github/assets/screenshots/screenshot5.png)
 
+![screenshot6](https://raw.githubusercontent.com/hengtseChou/Niri/refs/heads/main/.github/assets/screenshots/screenshot6.png)
+
 # Features
 
 - Empower niri with waybar, fuzzel, dunst, swaylock, and more - A full experience!
@@ -78,7 +80,6 @@ For the dotfiles of the following programs, please refer to [the main configurat
 | <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>B</kbd>     | Toggle waybar             |
 | <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>W</kbd>     | Launch wallpaper selector |
 | <kbd>Super</kbd> + <kbd>Backspace</kbd>               | Launch logout screen      |
-| <kbd>Super</kbd> + <kbd>A</kbd>                       | Toggle overview           |
 
 ## Backlight and Audio
 
@@ -133,6 +134,7 @@ For the dotfiles of the following programs, please refer to [the main configurat
 | <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>PageDown</kbd> | Move column downward            |
 | <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>PageUp</kbd>   | Move column upward              |
 | <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>[0-9]</kbd>    | Move column to workspace [1-10] |
+| <kbd>Super</kbd> + <kbd>A</kbd>                          | Toggle overview                 |
 
 ## Screenshot
 

@@ -38,7 +38,6 @@ if [ "$SKIP_INSTALL" = false ]; then
 
   pkgs=(
     alacritty
-    blueman
     brightnessctl
     cliphist
     dunst
@@ -52,7 +51,6 @@ if [ "$SKIP_INSTALL" = false ]; then
     swayidle
     swaylock-effects
     swww
-    udiskie
     waybar
     wlogout
   )
