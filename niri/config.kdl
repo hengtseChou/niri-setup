@@ -101,18 +101,22 @@ layout {
 
 // startup processes
 spawn-at-startup "udiskie"
+spawn-at-startup "niriswitcher"
+spawn-at-startup "xwayland-satellite"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 spawn-at-startup "waybar" "-c" "$NIRICONF/waybar/config" "-s" "$NIRICONF/waybar/style.css"
 spawn-at-startup "dunst" "-conf" "$NIRICONF/dunst/dunstrc"
 spawn-at-startup "sh" "-c" "pkill swayidle; echo '10 minutes' > /tmp/idle-time; $NIRICONF/scripts/swayidle.sh"
-hotkey-overlay {
-    skip-at-startup
-}
 
-// misc configuration
-screenshot-path "~/Pictures/Screenshots/Screenshot From %Y-%m-%d %H-%M-%S.png"
-prefer-no-csd
+// workspace background and backdrop
+spawn-at-startup "swww-daemon"
+spawn-at-startup "swww" "img" "$NIRICONF/wallpapers/backdrop.jpg"
+spawn-at-startup "swaybg" "-i" "$NIRICONF/wallpapers/workspace.jpg" "-m" "fit" "-c" "#000000"
+layer-rule {
+    match namespace="^swww-daemon$"
+    place-within-backdrop true
+}
 
 // Animation settings.
 // The wiki explains how to configure individual animations:
@@ -143,16 +147,6 @@ window-rule {
     shadow {
         on
     }
-}
-
-// workspace background and backdrop
-spawn-at-startup "swww" "img" "$NIRICONF/wallpapers/backdrop./home/hank/Pictures/Wallpapers/"
-spawn-at-startup "swaybg" "-i" "$NIRICONF/wallpapers/workspace./home/hank/Pictures/Wallpapers/" "-m" "" "-c" ""
-spawn-at-startup
-spawn-at-startup "swww-daemon"
-layer-rule {
-    match namespace="^swww-daemon$"
-    place-within-backdrop true
 }
 
 binds {
@@ -226,9 +220,20 @@ binds {
     Mod+Ctrl+9         { move-column-to-workspace 9; }
     Mod+Ctrl+0         { move-column-to-workspace 10; }
     Mod+A              { toggle-overview; }
+    Alt+Tab repeat=false { spawn "pkill" "-USR1" "niriswitcher"; }
 
     // Screenshots
     Print       { screenshot; }
     Ctrl+Print  { screenshot-window; }
     Shift+Print { screenshot-screen; }
+}
+
+// misc configuration
+screenshot-path "~/Pictures/Screenshots/Screenshot From %Y-%m-%d %H-%M-%S.png"
+prefer-no-csd
+environment {
+    DISPLAY ":0"
+}
+hotkey-overlay {
+    skip-at-startup
 }
