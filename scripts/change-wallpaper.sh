@@ -30,7 +30,7 @@ pkill swaybg
 (eval "$workspace_cmd" &>/dev/null &)
 
 echo "[INFO] creating new overview backdrop..."
-magick "$NIRICONF/wallpapers/workspace.${image##*.}" -blur 0x8 "$NIRICONF/wallpapers/backdrop.${image##*.}"
+magick "$NIRICONF/wallpapers/workspace.${image##*.}" -blur 0x25 "$NIRICONF/wallpapers/backdrop.${image##*.}"
 backdrop_cmd="\"swww\" \"img\" \"$NIRICONF/wallpapers/backdrop.${image##*.}\""
 swww img "$NIRICONF/wallpapers/backdrop.${image##*.}"
 sed -i "s|^spawn-at-startup \"swww.*|spawn-at-startup $backdrop_cmd|" "$NIRICONF/niri/config.kdl"
