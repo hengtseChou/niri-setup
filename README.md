@@ -124,6 +124,7 @@ For the dotfiles of the following programs, please refer to [the main configurat
 | <kbd>Super</kbd> + <kbd>BracketRight</kbd>             | Consume from/expel to the column on the right                            |
 | <kbd>Super</kbd> + <kbd>Comma</kbd>                    | Consume window from the right </br>into the bottom of the focused column |
 | <kbd>Super</kbd> + <kbd>Period</kbd>                   | Expel the bottom window from </br>the focused column to the right        |
+| <kbd>Alt</kbd> + <kbd>Tab</kbd>                        | Switch between windows                                                   |
 
 ## Workspaces
 

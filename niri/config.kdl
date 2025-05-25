@@ -150,7 +150,6 @@ window-rule {
 }
 
 binds {
-    // Mod+Shift+Slash { show-hotkey-overlay; }
     // Applications
     Mod+Return      { spawn "alacritty" "--config-file" "$NIRICONF/alacritty/default.toml"; }
     Mod+Ctrl+Return { spawn "fuzzel" "--config" "$NIRICONF/fuzzel/fuzzel.ini"; }
@@ -177,32 +176,33 @@ binds {
     XF86AudioPrev         allow-when-locked=true { spawn "playerctl" "previous"; }
 
     // Windows and Columns
-    Mod+Q            { close-window; }
-    Mod+W            { switch-preset-column-width; }
-    Mod+H            { switch-preset-window-height; }
-    Mod+T            { toggle-window-floating; }
-    Mod+M            { maximize-column; }
-    Mod+F            { fullscreen-window; }
-    Mod+Left         { focus-column-left; }
-    Mod+Right        { focus-column-right; }
-    Mod+Down         { focus-window-down; }
-    Mod+Up           { focus-window-up; }
-    Mod+Ctrl+Left    { move-column-left; }
-    Mod+Ctrl+Right   { move-column-right; }
-    Mod+Ctrl+Down    { move-window-down; }
-    Mod+Ctrl+Up      { move-window-up; }
-    Mod+Home         { focus-column-first; }
-    Mod+End          { focus-column-last; }
-    Mod+Ctrl+Home    { move-column-to-first; }
-    Mod+Ctrl+End     { move-column-to-last; }
-    Mod+Shift+Left   { set-column-width "-10%"; }
-    Mod+Shift+Right  { set-column-width "+10%"; }
-    Mod+Shift+Up     { set-window-height "+10%"; }
-    Mod+Shift+Down   { set-window-height "-10%"; }
-    Mod+BracketLeft  { consume-or-expel-window-left; }
-    Mod+BracketRight { consume-or-expel-window-right; }
-    Mod+Comma        { consume-window-into-column; }
-    Mod+Period       { expel-window-from-column; }
+    Mod+Q                { close-window; }
+    Mod+W                { switch-preset-column-width; }
+    Mod+H                { switch-preset-window-height; }
+    Mod+T                { toggle-window-floating; }
+    Mod+M                { maximize-column; }
+    Mod+F                { fullscreen-window; }
+    Mod+Left             { focus-column-left; }
+    Mod+Right            { focus-column-right; }
+    Mod+Down             { focus-window-down; }
+    Mod+Up               { focus-window-up; }
+    Mod+Ctrl+Left        { move-column-left; }
+    Mod+Ctrl+Right       { move-column-right; }
+    Mod+Ctrl+Down        { move-window-down; }
+    Mod+Ctrl+Up          { move-window-up; }
+    Mod+Home             { focus-column-first; }
+    Mod+End              { focus-column-last; }
+    Mod+Ctrl+Home        { move-column-to-first; }
+    Mod+Ctrl+End         { move-column-to-last; }
+    Mod+Shift+Left       { set-column-width "-10%"; }
+    Mod+Shift+Right      { set-column-width "+10%"; }
+    Mod+Shift+Up         { set-window-height "+10%"; }
+    Mod+Shift+Down       { set-window-height "-10%"; }
+    Mod+BracketLeft      { consume-or-expel-window-left; }
+    Mod+BracketRight     { consume-or-expel-window-right; }
+    Mod+Comma            { consume-window-into-column; }
+    Mod+Period           { expel-window-from-column; }
+    Alt+Tab repeat=false { spawn "pkill" "-USR1" "niriswitcher"; }
 
     // Workspaces
     Mod+Page_Down      { focus-workspace-down; }
