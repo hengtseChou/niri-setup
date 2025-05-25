@@ -43,6 +43,7 @@ if [ "$SKIP_INSTALL" = false ]; then
     dunst
     fuzzel
     niri
+    niriswitcher
     pamixer
     polkit-gnome
     pwvucontrol
@@ -53,6 +54,7 @@ if [ "$SKIP_INSTALL" = false ]; then
     swww
     waybar
     wlogout
+    xwayland-satellite
   )
   $aur -Syu --needed $(echo "${pkgs[*]}")
 fi
