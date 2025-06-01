@@ -33,6 +33,6 @@ echo "[INFO] creating new overview backdrop..."
 magick "$NIRICONF/wallpapers/workspace.${image##*.}" -scale 10% -blur 0x2.5 -resize 1000% "$NIRICONF/wallpapers/backdrop.${image##*.}"
 backdrop_cmd="\"swww\" \"img\" \"$NIRICONF/wallpapers/backdrop.${image##*.}\""
 swww img "$NIRICONF/wallpapers/backdrop.${image##*.}"
-sed -i "s|^spawn-at-startup \"swww.*|spawn-at-startup $backdrop_cmd|" "$NIRICONF/niri/config.kdl"
+sed -i "s|^spawn-at-startup \"swww.*img.*|spawn-at-startup $backdrop_cmd|" "$NIRICONF/niri/config.kdl"
 
 echo "[INFO] done!"
