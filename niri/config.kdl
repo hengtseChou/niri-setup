@@ -24,7 +24,7 @@ input {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
 output "eDP-1" {
     // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
-    mode "2880x1880@90"
+    mode "2880x1800@90"
     scale 1.5
     transform "normal"
     position x=0 y=0
@@ -36,10 +36,10 @@ output "HDMI-A-1" {
     // left
     // position x=-1920 y=0
     // right
-    // position x=1920 y=0
+    position x=1920 y=0
     // top
     // the value would be based on the connected monitor
-    position x=0 y=-1080
+    //position x=0 y=-1080
 }
 output "DP-1" {
     transform "normal"
@@ -110,8 +110,7 @@ spawn-at-startup "dunst" "-conf" "$NIRICONF/dunst/dunstrc"
 spawn-at-startup "sh" "-c" "pkill swayidle; echo '10 minutes' > /tmp/idle-time; $NIRICONF/scripts/swayidle.sh"
 
 // workspace background and backdrop
-spawn-at-startup "swww-daemon"
-spawn-at-startup "swww" "img" "$NIRICONF/wallpapers/backdrop.jpg"
+spawn-at-startup "sh" "-c" "swww-daemon & swww img $NIRICONF/wallpapers/backdrop.jpg"
 spawn-at-startup "swaybg" "-i" "$NIRICONF/wallpapers/workspace.jpg" "-m" "fit" "-c" "#000000"
 layer-rule {
     match namespace="^swww-daemon$"
@@ -220,7 +219,6 @@ binds {
     Mod+Ctrl+9         { move-column-to-workspace 9; }
     Mod+Ctrl+0         { move-column-to-workspace 10; }
     Mod+A              { toggle-overview; }
-    Alt+Tab repeat=false { spawn "pkill" "-USR1" "niriswitcher"; }
 
     // Screenshots
     Print       { screenshot; }
