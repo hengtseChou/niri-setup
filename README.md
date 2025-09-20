@@ -35,6 +35,9 @@
 
 # Features
 
+> [!NOTE]
+> This niri configuration is up to date to: [niri v25.08](https://github.com/YaLTeR/niri/releases/tag/v25.08).
+
 - Empower niri with waybar, fuzzel, dunst, swaylock, and more - A full experience!
 - Idle time and power profile picker available as waybar widgets and fuzzel menus
 - A wallpaper switching script that creates blurred overview backdrop at the same time
@@ -51,7 +54,8 @@ cd niri
 
 The script will install packages required for this setup and symlink to the corresponding directories. Make sure you have one of the AUR helpers installed.
 
-**Note that the install script will only work on Arch Linux and its derivatives.**
+> [!IMPORTANT]
+> The install script will only work on Arch Linux and its derivatives..
 
 For the dotfiles of the following programs, please refer to [the main configuration repo](https://github.com/hengtseChou/Conf).
 
