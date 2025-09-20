@@ -77,7 +77,7 @@ For the dotfiles of the following programs, please refer to [the main configurat
 | <kbd>Super</kbd> + <kbd>I</kbd>                       | Launch idle time menu     |
 | <kbd>Super</kbd> + <kbd>P</kbd>                       | Launch power profile menu |
 | <kbd>Super</kbd> + <kbd>U</kbd>                       | Launch updater            |
-| <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>B</kbd>     | Toggle waybar             |
+| <kbd>Super</kbd> + <kbd>W</kbd>                       | Toggle waybar             |
 | <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>W</kbd>     | Launch wallpaper selector |
 | <kbd>Super</kbd> + <kbd>Backspace</kbd>               | Launch logout screen      |
 
@@ -118,8 +118,8 @@ For the dotfiles of the following programs, please refer to [the main configurat
 | <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>End</kbd>    | Move column to the last                                                  |
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Left</kbd>  | Resize column width by -10%                                              |
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Right</kbd> | Resize column width by +10%                                              |
-| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Down</kbd>  | Resize window height by -10%                                             |
-| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Up</kbd>    | Resize window height by +10%                                             |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Up</kbd>    | Resize window height by -10%                                             |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Down</kbd>  | Resize window height by +10%                                             |
 | <kbd>Super</kbd> + <kbd>BracketLeft</kbd>              | Consume from/expel to the column on the left                             |
 | <kbd>Super</kbd> + <kbd>BracketRight</kbd>             | Consume from/expel to the column on the right                            |
 | <kbd>Super</kbd> + <kbd>Comma</kbd>                    | Consume window from the right </br>into the bottom of the focused column |

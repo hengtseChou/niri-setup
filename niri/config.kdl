@@ -157,7 +157,7 @@ binds {
     Mod+I           { spawn-sh "$NIRICONF/scripts/change-idle-time.sh"; }
     Mod+P           { spawn-sh "$NIRICONF/scripts/change-power-profile.sh"; }
     Mod+U           { spawn-sh "alacritty --title 'Updater' --config-file $NIRICONF/alacritty/float.toml -e $NIRICONF/waybar/modules/install-updates.sh"; }
-    Mod+Ctrl+B      { spawn-sh "$NIRICONF/scripts/toggle-waybar.sh"; }
+    Mod+W           { spawn-sh "$NIRICONF/scripts/toggle-waybar.sh"; }
     Mod+Ctrl+W      { spawn-sh "alacritty --title 'Wallpaper Selector' --config-file $NIRICONF/alacritty/float.toml -e $NIRICONF/scripts/change-wallpaper.sh"; }
     Mod+Backspace   { spawn-sh "$NIRICONF/scripts/wlogout.sh"; }
 
@@ -174,8 +174,6 @@ binds {
 
     // Windows and Columns
     Mod+Q                { close-window; }
-    Mod+W                { switch-preset-column-width; }
-    Mod+H                { switch-preset-window-height; }
     Mod+T                { toggle-window-floating; }
     Mod+M                { maximize-column; }
     Mod+F                { fullscreen-window; }
@@ -193,8 +191,8 @@ binds {
     Mod+Ctrl+End         { move-column-to-last; }
     Mod+Shift+Left       { set-column-width "-10%"; }
     Mod+Shift+Right      { set-column-width "+10%"; }
-    Mod+Shift+Up         { set-window-height "+10%"; }
-    Mod+Shift+Down       { set-window-height "-10%"; }
+    Mod+Shift+Up         { set-window-height "-10%"; }
+    Mod+Shift+Down       { set-window-height "+10%"; }
     Mod+BracketLeft      { consume-or-expel-window-left; }
     Mod+BracketRight     { consume-or-expel-window-right; }
     Mod+Comma            { consume-window-into-column; }
