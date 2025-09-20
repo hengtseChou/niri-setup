@@ -21,18 +21,20 @@ if [ $? -eq 1 ]; then
   exit 1
 fi
 
-echo "[INFO] copying selected wallpaper to $NIRICONF..."
+echo "[INFO] New wallpaper: $image"
+echo "[INFO] copying new wallpaper to $NIRICONF..."
 cp -f $image "$NIRICONF/wallpapers/workspace.${image##*.}"
 canvas_color=$(magick $NIRICONF/wallpapers/workspace.${image##*.} -crop x1+0+0 -resize 1x1 txt:- | grep -o '#[0-9A-Fa-f]\{6\}')
-workspace_cmd="\"swaybg\" \"-i\" \"$NIRICONF/wallpapers/workspace.${image##*.}\" \"-m\" \"$mode\" \"-c\" \"$canvas_color\""
-sed -i "s|^spawn-at-startup \"swaybg.*|spawn-at-startup $workspace_cmd|" "$NIRICONF/niri/config.kdl"
+workspace_cmd="swaybg -i $NIRICONF/wallpapers/workspace.${image##*.} -m $mode -c '$canvas_color'"
+sed -i "s|^spawn-sh-at-startup \"swaybg.*|spawn-sh-at-startup \"$workspace_cmd\"|" "$NIRICONF/niri/config.kdl"
 pkill swaybg
-(eval "$workspace_cmd" &>/dev/null &)
+nohup sh -c "$workspace_cmd" >/dev/null 2>&1 &
 
 echo "[INFO] creating new overview backdrop..."
 magick "$NIRICONF/wallpapers/workspace.${image##*.}" -scale 10% -blur 0x2.5 -resize 1000% "$NIRICONF/wallpapers/backdrop.${image##*.}"
-backdrop_cmd="\"sh\" \"-c\" \"swww-daemon \& swww img $NIRICONF/wallpapers/backdrop.${image##*.}\""
+backdrop_cmd="swww-daemon \& swww img $NIRICONF/wallpapers/backdrop.${image##*.}"
 swww img "$NIRICONF/wallpapers/backdrop.${image##*.}"
-sed -i "s|^spawn-at-startup \"swww.*img.*|spawn-at-startup $backdrop_cmd|" "$NIRICONF/niri/config.kdl"
+sed -i "s|^spawn-sh-at-startup \"swww.*img.*|spawn-sh-at-startup \"$backdrop_cmd\"|" "$NIRICONF/niri/config.kdl"
 
 echo "[INFO] done!"
+sleep 2

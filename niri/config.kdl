@@ -100,18 +100,17 @@ layout {
 }
 
 // startup processes
-spawn-at-startup "udiskie"
-spawn-at-startup "niriswitcher"
-spawn-at-startup "xwayland-satellite"
-spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
-spawn-at-startup "waybar" "-c" "$NIRICONF/waybar/config" "-s" "$NIRICONF/waybar/style.css"
-spawn-at-startup "dunst" "-conf" "$NIRICONF/dunst/dunstrc"
-spawn-at-startup "sh" "-c" "pkill swayidle; echo '10 minutes' > /tmp/idle-time; $NIRICONF/scripts/swayidle.sh"
+spawn-sh-at-startup "udiskie"
+spawn-sh-at-startup "niriswitcher"
+spawn-sh-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+spawn-sh-at-startup "wl-paste --watch cliphist store"
+spawn-sh-at-startup "waybar -c $NIRICONF/waybar/config -s $NIRICONF/waybar/style.css"
+spawn-sh-at-startup "dunst -conf $NIRICONF/dunst/dunstrc"
+spawn-sh-at-startup "pkill swayidle; echo '10 minutes' > /tmp/idle-time; $NIRICONF/scripts/swayidle.sh"
 
 // workspace background and backdrop
-spawn-at-startup "sh" "-c" "swww-daemon & swww img $NIRICONF/wallpapers/backdrop.jpg"
-spawn-at-startup "swaybg" "-i" "$NIRICONF/wallpapers/workspace.jpg" "-m" "fit" "-c" "#000000"
+spawn-sh-at-startup "swww-daemon & swww img $NIRICONF/wallpapers/backdrop.png"
+spawn-sh-at-startup "swaybg -i $NIRICONF/wallpapers/workspace.png -m fill -c '#30404E'"
 layer-rule {
     match namespace="^swww-daemon$"
     place-within-backdrop true
@@ -141,7 +140,6 @@ window-rule {
     match app-id="Alacritty" title="Updater"
     match app-id="Alacritty" title="nmtui"
     match app-id="Alacritty" title="Wallpaper Selector"
-    match app-id="chrome-ophjlpahpchlmihnnnihgmmeilfjmjjc__index.html-Default"
     open-floating true
     shadow {
         on
@@ -150,29 +148,29 @@ window-rule {
 
 binds {
     // Applications
-    Mod+Return      { spawn "alacritty" "--config-file" "$NIRICONF/alacritty/default.toml"; }
-    Mod+Ctrl+Return { spawn "fuzzel" "--config" "$NIRICONF/fuzzel/fuzzel.ini"; }
-    Mod+B           { spawn "firefox"; }
-    Mod+E           { spawn "nautilus"; }
-    Mod+L           { spawn "$NIRICONF/scripts/swaylock.sh"; }
-    Mod+C           { spawn "sh" "-c" "cliphist list | fuzzel --dmenu --config $NIRICONF/fuzzel/clipboard.ini | cliphist decode | wl-copy"; }
-    Mod+I           { spawn "$NIRICONF/scripts/change-idle-time.sh"; }
-    Mod+P           { spawn "$NIRICONF/scripts/change-power-profile.sh"; }
-    Mod+U           { spawn "alacritty" "--title" "Updater" "--config-file" "$NIRICONF/alacritty/float.toml" "-e" "$NIRICONF/waybar/modules/install-updates.sh"; }
-    Mod+Ctrl+B      { spawn "$NIRICONF/scripts/toggle-waybar.sh"; }
-    Mod+Ctrl+W      { spawn "alacritty" "--title" "Wallpaper Selector" "--config-file" "$NIRICONF/alacritty/float.toml" "-e" "$NIRICONF/scripts/change-wallpaper.sh"; }
-    Mod+Backspace   { spawn "$NIRICONF/scripts/wlogout.sh"; }
+    Mod+Return      { spawn-sh "alacritty --config-file $NIRICONF/alacritty/default.toml"; }
+    Mod+Ctrl+Return { spawn-sh "fuzzel --config $NIRICONF/fuzzel/fuzzel.ini"; }
+    Mod+B           { spawn-sh "firefox"; }
+    Mod+E           { spawn-sh "nautilus"; }
+    Mod+L           { spawn-sh "$NIRICONF/scripts/swaylock.sh"; }
+    Mod+C           { spawn-sh "cliphist list | fuzzel --dmenu --config $NIRICONF/fuzzel/clipboard.ini | cliphist decode | wl-copy"; }
+    Mod+I           { spawn-sh "$NIRICONF/scripts/change-idle-time.sh"; }
+    Mod+P           { spawn-sh "$NIRICONF/scripts/change-power-profile.sh"; }
+    Mod+U           { spawn-sh "alacritty --title 'Updater' --config-file $NIRICONF/alacritty/float.toml -e $NIRICONF/waybar/modules/install-updates.sh"; }
+    Mod+Ctrl+B      { spawn-sh "$NIRICONF/scripts/toggle-waybar.sh"; }
+    Mod+Ctrl+W      { spawn-sh "alacritty --title 'Wallpaper Selector' --config-file $NIRICONF/alacritty/float.toml -e $NIRICONF/scripts/change-wallpaper.sh"; }
+    Mod+Backspace   { spawn-sh "$NIRICONF/scripts/wlogout.sh"; }
 
     // Backlight and Audio
-    XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "set" "+5%" ; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "5%-" ; }
-    XF86AudioRaiseVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05+"; }
-    XF86AudioLowerVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05-"; }
-    XF86AudioMute         allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-    XF86AudioPlay         allow-when-locked=true { spawn "playerctl" "play-pause"; }
-    XF86AudioPause        allow-when-locked=true { spawn "playerctl" "pause"; }
-    XF86AudioNext         allow-when-locked=true { spawn "playerctl" "next"; }
-    XF86AudioPrev         allow-when-locked=true { spawn "playerctl" "previous"; }
+    XF86MonBrightnessUp   allow-when-locked=true { spawn-sh "brightnessctl set +5%" ; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "brightnessctl set 5%-" ; }
+    XF86AudioRaiseVolume  allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+"; }
+    XF86AudioLowerVolume  allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
+    XF86AudioMute         allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioPlay         allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    XF86AudioPause        allow-when-locked=true { spawn-sh "playerctl pause"; }
+    XF86AudioNext         allow-when-locked=true { spawn-sh "playerctl next"; }
+    XF86AudioPrev         allow-when-locked=true { spawn-sh "playerctl previous"; }
 
     // Windows and Columns
     Mod+Q                { close-window; }
@@ -201,7 +199,7 @@ binds {
     Mod+BracketRight     { consume-or-expel-window-right; }
     Mod+Comma            { consume-window-into-column; }
     Mod+Period           { expel-window-from-column; }
-    Alt+Tab repeat=false { spawn "pkill" "-USR1" "niriswitcher"; }
+    Alt+Tab repeat=false { spawn-sh "pkill -USR1 niriswitcher"; }
 
     // Workspaces
     Mod+Page_Down      { focus-workspace-down; }
@@ -229,9 +227,6 @@ binds {
 // misc configuration
 screenshot-path "~/Pictures/Screenshots/Screenshot From %Y-%m-%d %H-%M-%S.png"
 prefer-no-csd
-environment {
-    DISPLAY ":0"
-}
 hotkey-overlay {
     skip-at-startup
 }
