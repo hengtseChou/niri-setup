@@ -57,7 +57,7 @@ The script will install packages required for this setup and symlink to the corr
 > [!IMPORTANT]
 > The install script will only work on Arch Linux and its derivatives.
 
-For the dotfiles of the following programs, please refer to [the main configuration repo](https://github.com/hengtseChou/Conf).
+For the dotfiles of the following programs, please refer to [my dotfiles repo](https://github.com/hengtseChou/dotfiles).
 
 - `fastfetch`
 - `fontconfig`
