@@ -1,6 +1,7 @@
 - **Window Manager •** [niri](https://github.com/YaLTeR/niri)
-- **Display Manager •** [tuigreet](https://github.com/apognu/tuigreet)
 - **Launcher •** [Fuzzel](https://codeberg.org/dnkl/fuzzel)
+- **Switcher •** [niriswitcher](https://github.com/isaksamsten/niriswitcher)
+- **Display Manager •** [tuigreet](https://github.com/apognu/tuigreet)
 - **Panel •** [Waybar](https://github.com/Alexays/Waybar)
 - **Panel Font •** [Ubuntu Mono Nerd Font](https://archlinux.org/packages/extra/any/ttf-ubuntu-mono-nerd/) + [Noto Sans Mono CJK TC](https://archlinux.org/packages/extra/any/noto-fonts-cjk/)
 - **Notification •** [dunst](https://github.com/dunst-project/dunst)
@@ -61,7 +62,6 @@ For the dotfiles of the following programs, please refer to [my dotfiles repo](h
 
 - `fastfetch`
 - `fontconfig`
-- `tuigreet`
 - `spicetify`
 - `starship`
 - `zsh`
